@@ -1,8 +1,38 @@
+'use client'
 import React from 'react'
 import CommonHead from '../common/CommonHead'
 import SingleSeller from '../common/SingleSeller'
+import Slider from 'react-slick'
+import img1 from '../../../public/previewImg1.png'
+import img2 from '../../../public/previewImg2.png'
+import img3 from '../../../public/previewImg3.png'
+import img4 from '../../../public/previewImg4.png'
 
 const BestSeller = () => {
+    const settings = {
+        className: "center",
+        centerMode: true,
+        infinite: true,
+        centerPadding: "60px",
+        slidesToShow: 3,
+        speed: 500,
+        autoplay: true,
+    }
+
+    const myPro = [
+        {
+            img: img1,
+        },
+        {
+            img: img2,
+        },
+        {
+            img: img3,
+        },
+        {
+            img: img4,
+        },
+    ]
   return (
     <>
         <section id='Best-Seller' className='mt-[112px]'>
@@ -25,9 +55,16 @@ const BestSeller = () => {
                         <div className='bg-primary rounded-[8px] h-[4px] max-w-[100%] w-[38%]'></div>
                     </div>
                     {/* ----------------------Seller Slider-------------------- */}
-                    <div className='mt-[77px]'>
-                        <SingleSeller/>
+                    <div className="slider-container mt-[77px]">
+                        <Slider {...settings}>
+                            {
+                                myPro.map((item , i)=>(
+                                    <SingleSeller img={item.img} key={i}/>
+                                ))
+                            }
+                        </Slider>
                     </div>
+
                 </div>
             </div>
         </section>
