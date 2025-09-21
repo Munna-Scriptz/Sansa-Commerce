@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import logo from '../../public/logo.svg'
+import logo from '../../../public/logo.svg'
 import Image from 'next/image'
 import { IoSearch } from "react-icons/io5";
 import { MdOutlineShoppingCart } from "react-icons/md";
