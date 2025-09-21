@@ -1,5 +1,6 @@
 import React from 'react'
 import CommonHead from '../common/CommonHead'
+import SingleSeller from '../common/SingleSeller'
 
 const BestSeller = () => {
   return (
@@ -24,7 +25,9 @@ const BestSeller = () => {
                         <div className='bg-primary rounded-[8px] h-[4px] max-w-[100%] w-[38%]'></div>
                     </div>
                     {/* ----------------------Seller Slider-------------------- */}
-
+                    <div className='mt-[77px]'>
+                        <SingleSeller/>
+                    </div>
                 </div>
             </div>
         </section>

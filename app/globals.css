@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 /* ------------------------Tailwind Css---------------------------- */
 @import "tailwindcss";
 
@@ -9,6 +11,7 @@
 
 @theme{
   --font-roboto: "Roboto", sans-serif;
+  --font-inter: "Inter", sans-serif;
   --color-brand: #F1FDDF;
   --color-primary: #8AC732;
   --color-second: #101110;
@@ -16,6 +19,9 @@
   --color-borderCol: #DADFD8;
 }
 /* ----------------------Common Css------------------------ */
+body{
+  font-family: "Roboto", sans-serif;
+}
 nav{
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
