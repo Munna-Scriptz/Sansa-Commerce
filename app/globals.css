@@ -18,3 +18,20 @@
 nav{
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
+/* ---------Slider Dots--------- */
+.slider-Banner-container .slick-dots {
+  bottom: -40px !important;
+}
+.slider-Banner-container .slick-dots li.slick-active button:before {
+  opacity: 1 !important;
+  background: #8AC732 !important;
+}
+.slider-Banner-container .slick-dots li button:before {
+  transition: 500ms ease-in-out all;
+  opacity: .8 !important;
+  width: 10px !important;
+  height: 10px !important;
+  content: '' !important;
+  border: 2px solid #101110;
+  transform: rotate(45deg);
+}
