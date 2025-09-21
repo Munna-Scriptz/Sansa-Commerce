@@ -11,7 +11,7 @@
 
 @theme{
   --font-roboto: "Roboto", sans-serif;
-  --font-inter: "Inter", sans-serif;
+  --font-inter: "Inter", "sans-serif";
   --color-brand: #F1FDDF;
   --color-primary: #8AC732;
   --color-second: #101110;
