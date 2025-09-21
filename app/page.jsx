@@ -5,6 +5,7 @@ import BestSeller from './components/home/BestSeller'
 import Discount from './components/home/Discount'
 import Counter from './components/home/Counter'
 import Order from './components/home/Order'
+import Touch from './components/home/Touch'
 
 const page = () => {
   return (
@@ -15,6 +16,7 @@ const page = () => {
       <Counter/>
       <Discount/>
       <Order/>
+      <Touch/>
     </>
   )
 }
