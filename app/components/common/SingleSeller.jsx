@@ -18,8 +18,9 @@ const SingleSeller = ({img}) => {
                 </div>
             </div>
             {/* -------Add To Cart  */}
-            <div className='absolute top-[16px] right-[16px] w-[40px] h-[40px] flex items-center justify-center text-second text-2xl cursor-pointer hover:bg-subText hover:text-white rounded-full duration-300'>
+            <div className='addToCart absolute top-[16px] right-[16px] w-[40px] h-[40px] flex items-center justify-center text-second text-2xl cursor-pointer hover:bg-subText hover:text-white rounded-full duration-300'>
                 <MdAddShoppingCart />
+                <span className="tooltip">Add To Cart</span>
             </div>
         </div>
     </>

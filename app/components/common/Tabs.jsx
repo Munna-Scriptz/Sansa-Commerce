@@ -6,6 +6,7 @@ import { FiImage } from "react-icons/fi";
 const Tabs = () => {
     const [tab , setTab] = useState(
         {
+            searchContent: '',
             tabContent: 'clothes',
         }
     )
