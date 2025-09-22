@@ -56,8 +56,10 @@ const Touch = () => {
                             </fieldset>
                         </div>
                         {/* ----------------------Submit Button--------------------- */}
-                        <button className='text-white bg-primary font-roboto w-full rounded-full mt-8 py-4 cursor-pointer font-medium hover:bg-subText duration-300'>Sign Up</button>
-
+                        <button className={`relative flex items-center justify-center py-4 w-full mt-8 cursor-pointer overflow-hidden text-primary bg-primary group rounded-full`}>
+                            <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-second rounded-full group-hover:w-86 group-hover:h-56"></span>
+                            <span className="relative text-[16px] font-roboto text-white font-medium">Sign Up</span>
+                        </button>
                     </div>
                 </div>
             </div>
