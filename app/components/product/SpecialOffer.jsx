@@ -8,8 +8,8 @@ import img1 from '../../../public/previewImg1.png'
 import img2 from '../../../public/previewImg2.png'
 import img3 from '../../../public/previewImg3.png'
 import img4 from '../../../public/previewImg4.png'
-import SingleSeller from '../common/SingleSeller'
 import "slick-carousel/slick/slick.css";
+import SingleDiscount from '../common/SingleDiscount'
 
 const SpecialOffer = () => {
     const settings = {
@@ -52,7 +52,7 @@ const SpecialOffer = () => {
                         <Slider {...settings}>
                             {
                                 myPro.map((item , i)=>(
-                                    <SingleSeller img={item.img} key={i}/>
+                                    <SingleDiscount img={item.img} key={i}/>
                                 ))
                             }
                         </Slider>

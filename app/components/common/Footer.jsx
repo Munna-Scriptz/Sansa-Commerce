@@ -6,12 +6,13 @@ import { CiLinkedin } from 'react-icons/ci'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import pay1 from '../../../public/Visa.png'
-import pay2 from '../../../public/PayPal.png'
-import pay3 from '../../../public/GooglePay.png'
-import pay4 from '../../../public/ApplePay.png'
-import pay5 from '../../../public/Mastercard.png'
-import pay6 from '../../../public/UnionPay.png'
+import pay1 from '../../../public/payment1.png'
+import pay2 from '../../../public/payment2.png'
+import pay3 from '../../../public/payment3.png'
+import pay4 from '../../../public/payment4.png'
+import pay5 from '../../../public/payment5.png'
+import pay6 from '../../../public/payment6.png'
+
 import { MdOutlineAlternateEmail } from 'react-icons/md'
 import { IoLanguage } from 'react-icons/io5'
 
@@ -65,24 +66,24 @@ const Footer = () => {
                     {/* ---------------------Fourth Row------------------------- */}
                     <div>
                         <h2 className='font-roboto font-semibold text-xl text-second'>Payment Methods </h2>
-                        <div className='mt-6 flex items-center gap-1 flex-wrap'>
+                        <div className='mt-6 grid grid-cols-2 items-start justify-between gap-y-4'>
                             <Link href={'/'}>
-                                <Image src={pay1} alt="Payments methods     "/>
+                                <Image src={pay1} alt="Payments methods"/>
                             </Link>
                             <Link href={'/'}>
-                                <Image src={pay2} alt="Payments methods     "/>
+                                <Image src={pay2} alt="Payments methods"/>
                             </Link>
                             <Link href={'/'}>
-                                <Image src={pay3} alt="Payments methods     "/>
+                                <Image src={pay3} alt="Payments methods"/>
                             </Link>
                             <Link href={'/'}>
-                                <Image src={pay4} alt="Payments methods     "/>
+                                <Image src={pay4} alt="Payments methods"/>
                             </Link>
                             <Link href={'/'}>
-                                <Image src={pay5} alt="Payments methods     "/>
+                                <Image src={pay5} alt="Payments methods"/>
                             </Link>
                             <Link href={'/'}>
-                                <Image src={pay6} alt="Payments methods     "/>
+                                <Image src={pay6} alt="Payments methods"/>
                             </Link>
                         </div>
                     </div>
