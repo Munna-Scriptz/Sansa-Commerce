@@ -7,7 +7,7 @@ const SingleDiscount = ({img}) => {
   return (
     <>
         <div className='w-[338px] border-1 border-gray-300 p-6 rounded-[8px] relative'>
-            <Image src={img}></Image>
+            <Image src={img} alt='Image'></Image>
             <h2 className='text-second text-[26px] mt-6 mb-2'>Warning t-shirt</h2>
             <p className='text-subText text-base'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore, enim?</p>
             {/* ----Price  */}

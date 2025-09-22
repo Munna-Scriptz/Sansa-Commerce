@@ -67,22 +67,22 @@ const Footer = () => {
                         <h2 className='font-roboto font-semibold text-xl text-second'>Payment Methods </h2>
                         <div className='mt-6 flex items-center gap-1 flex-wrap'>
                             <Link href={'/'}>
-                                <Image src={pay1}/>
+                                <Image src={pay1} alt="Payments methods     "/>
                             </Link>
                             <Link href={'/'}>
-                                <Image src={pay2}/>
+                                <Image src={pay2} alt="Payments methods     "/>
                             </Link>
                             <Link href={'/'}>
-                                <Image src={pay3}/>
+                                <Image src={pay3} alt="Payments methods     "/>
                             </Link>
                             <Link href={'/'}>
-                                <Image src={pay4}/>
+                                <Image src={pay4} alt="Payments methods     "/>
                             </Link>
                             <Link href={'/'}>
-                                <Image src={pay5}/>
+                                <Image src={pay5} alt="Payments methods     "/>
                             </Link>
                             <Link href={'/'}>
-                                <Image src={pay6}/>
+                                <Image src={pay6} alt="Payments methods     "/>
                             </Link>
                         </div>
                     </div>
