@@ -1,41 +1,27 @@
-import BreadCrumb from '@/app/components/common/BreadCrumb'
+import CartHead from '@/app/components/cart/CartHead'
+import CartProduct from '@/app/components/cart/CartProduct'
+import Summery from '@/app/components/cart/Summery'
 import React from 'react'
 
 const page = () => {
   return (
     <>
-        <main id='Shopping-Bag'>
-            <section id='Cart-Header'>
-              <BreadCrumb pageName={'Shopping Bag'}/>
-              <h2 className='container text-second mt-6 text-[28px] leading-[36px]'>Shopping Bag</h2>
+      <CartHead />
+      {/* ----------------------Product And The Summery----------------------- */}
+      <main className='mt-[48px]'>
+        <div className="container">
+          <div id="Product-Row" className='flex items-start justify-between gap-5'>
+            {/* ---------------------- Product ------------------ */}
+            <section className='w-[775px]'>
+              <CartProduct />
             </section>
-            {/* --------------------------Buy Progress Bar----------------------------- */}
-            <div className="container">
-              <div className="w-full mt-[42px] flex items-center justify-between relative">
-              {/* ---------Line--------- */}
-              <div className="absolute top-[25%] left-0 w-full h-[1px] bg-[#44483D] -z-10"></div>
 
-              {/* ------Step 1-------- */}
-              <div className="flex flex-col items-center w-1/3">
-                <div className="w-6 h-6 rounded-full bg-primary border border-[#44483D]"></div>
-                <span className="mt-2 text-base text-second">Card</span>
-              </div>
+            {/* ---------------------- Summery ------------------ */}
+            <Summery />
 
-              {/* --------Step 2-------- */}
-              <div className="flex flex-col items-center w-1/3">
-                <div className="w-6 h-6 rounded-full bg-white border border-gray-500"></div>
-                <span className="mt-2 text-base text-second">Shipping</span>
-              </div>
-
-              {/* ------Step 3------ */}
-              <div className="flex flex-col items-center w-1/3">
-                <div className="w-6 h-6 rounded-full bg-white border border-gray-500"></div>
-                <span className="mt-2 text-base text-second">Payment</span>
-              </div>
-
-              </div>
-            </div>
-        </main>
+          </div>
+        </div>
+      </main>
     </>
   )
 }
