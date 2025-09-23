@@ -2,14 +2,12 @@ import React from 'react'
 import BreadCrumb from '../common/BreadCrumb'
 import Tabs from '../common/Tabs'
 
-const SearchTop = () => {
+const SearchProducts = () => {
   return (
     <>
-        <BreadCrumb pageName={'Search'} />
-        <Tabs/>
-        
+      <Tabs/>
     </>
   )
 }
 
-export default SearchTop
+export default SearchProducts
