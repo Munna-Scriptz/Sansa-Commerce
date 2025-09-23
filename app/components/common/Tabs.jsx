@@ -33,7 +33,6 @@ const Tabs = () => {
             title: 'books',
         },
     ]
-    console.log(tab.tabContent)
   return (
     <>
         <div className="container">

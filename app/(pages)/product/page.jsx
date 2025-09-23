@@ -10,7 +10,7 @@ const page = () => {
   return (
     <>
       <BreadCrumb pageName={'Product'}/>
-      {/* ------------Includes search text, searchbox, product tabs------------- */}
+      {/* ------------Contains search text, searchbox, product tabs------------- */}
       <Tabs/>
       {/* ------------Best Selling Products------------- */}
       <BestSelling />
