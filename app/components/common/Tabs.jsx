@@ -56,7 +56,7 @@ const Tabs = () => {
                 <div className="w-full h-[56px] mt-[31px] rounded-[8px] border border-borderCol p-1.5 flex items-center justify-between">
                     {
                         categories.map((item , i)=>(
-                            <div key={i} onClick={()=>setTab((prev)=>({...prev , tabContent: item.title}))} className={`${tab.tabContent === item.title? 'bg-primary text-white' : 'bg-transparent text-second'} py-[10px] px-[24px] rounded-[8px] cursor-pointer`}>
+                            <div key={i} onClick={()=>setTab((prev)=>({...prev , tabContent: item.title}))} className={`${tab.tabContent === item.title? 'bg-primary text-white' : 'bg-transparent text-second'} duration-300 py-[10px] px-[24px] rounded-[8px] cursor-pointer`}>
                                 {item.title}
                             </div>
                         ))

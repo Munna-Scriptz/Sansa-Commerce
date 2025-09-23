@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { FaDollarSign } from 'react-icons/fa6'
 import { IoIosArrowDown, IoMdResize } from 'react-icons/io'
 import { IoColorPaletteOutline, IoSettingsOutline } from 'react-icons/io5'
-import { MdKeyboardDoubleArrowLeft } from 'react-icons/md'
+import { MdKeyboardDoubleArrowLeft, MdOutlineBrandingWatermark } from 'react-icons/md'
 
 const FilterProducts = () => {
     // ---------Size----------
@@ -22,10 +22,14 @@ const FilterProducts = () => {
     const [material , setMaterial] = useState({mateActive: false, mateContent: 'cotton'})
     const materials = ['cotton' , 'silk' , 'polyester' ,'silicon' , 'wool']
 
+    // ---------Material ----------
+    const [brand , setBrand] = useState({brandActive: false, brandContent: ''})
+    const brands = ['Gucci' , 'Prada' , 'Nike' ,'Chanel' , 'Adidas' , 'Disesel']
+
   return (
     <>
-        <section id='Filter-Products' className='py-6 mt-6 select-none w-[300px]'>
-            <fieldset className='border-r-1 border-[#B3B7B1] h-[600px] relative px-3'>
+        <section id='Filter-Products' className='py-6 mt-4 select-none w-[300px]'>
+            <fieldset className='border-r-1 border-[#B3B7B1] relative px-3'>
                 <legend className='text-primary text-3xl absolute top-[50px] right-[-15px] bg-white'><MdKeyboardDoubleArrowLeft /></legend>
                 {/* --------------Head Text--------------- */}
                 <div>
@@ -70,7 +74,7 @@ const FilterProducts = () => {
                         {
                             colors.map((item , i)=>(
                                 <button key={i} onClick={()=>setColor((prev)=>({...prev , colContent: item}))} className={`${color.colContent === item? 'bg-[#B3B7B1] text-white border-none duration-300' : 'bg-transparent text-second duration-300'} duration-300 rounded-full p-[2px] flex items-center gap-2 cursor-pointer`}>
-                                    <div className={`w-[24px] h-[24px] bg-[#${item}] rounded-full`}></div>
+                                    <div className={`w-[24px] h-[24px] rounded-full`} style={{ backgroundColor: `#${item}` }}></div>
                                 </button>
                             ))
                         }
@@ -129,15 +133,32 @@ const FilterProducts = () => {
                     <div className={`${material.mateActive? 'h-0' : 'h-[90px]'} flex flex-wrap items-center justify-center gap-2 overflow-hidden duration-300`}>
                         {
                             materials.map((item , i)=>(
-                                <button onClick={()=>setMaterial((prev)=>({...prev , mateContent: item}))} key={i} className={`${material.mateContent === item? 'bg-primary text-white border-none scale-[1.08] duration-300' : 'bg-transparent text-subText duration-300'} duration-300 px-4 py-1.5 border-2 border-[#75796C] rounded-[8px] cursor-pointer`}>{item}</button>
+                                <button onClick={()=>setMaterial((prev)=>({...prev , mateContent: item}))} key={i} className={`${material.mateContent === item? 'bg-primary text-white border-none scale-[1.08] duration-300' : 'bg-transparent text-subText duration-300'} duration-300 px-4 py-1.5 border-1 border-[#75796C] rounded-[8px] cursor-pointer`}>{item}</button>
                             ))
                         }
                     </div>
                 </section>
 
-
-
-
+                {/* -----------------------------Brands ------------------------- */}
+                <section id='Material-Filter' className={`mt-2`}>
+                    <div onClick={()=>setBrand((prev)=>({...prev , brandActive : !prev.brandActive}))} className='p-3 mb-3 flex items-center justify-between cursor-pointer hover:bg-brand rounded-[8px] duration-300'>
+                        <div className='flex items-center gap-3 text-[#44483D]'>
+                            <MdOutlineBrandingWatermark className='text-xl'/>
+                            <p className='font-medium'>Brands</p>
+                        </div>
+                        <div>
+                            <IoIosArrowDown className={`${brand.brandActive? 'rotate-0' : 'rotate-180'} text-subText duration-400`}/>
+                        </div>
+                    </div>
+                    {/* ---------------------Click Down------------------ */}
+                    <div className={`${brand.brandActive? 'h-0' : 'h-[130px]'} flex flex-wrap items-center justify-center gap-2 overflow-hidden duration-300`}>
+                        {
+                            brands.map((item , i)=>(
+                                <button onClick={()=>setBrand((prev)=>({...prev , brandContent: item}))} key={i} className={`${brand.brandContent === item? 'bg-primary text-white duration-300' : 'bg-transparent text-[#44483D] duration-300'} duration-300 px-2 py-1.5 border-1 border-[#75796C] rounded-[8px] cursor-pointer`}>{item}</button>
+                            ))
+                        }
+                    </div>
+                </section>
 
             </fieldset>
         </section>
