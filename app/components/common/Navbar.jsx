@@ -25,7 +25,7 @@ const Navbar = () => {
                     {/* --------------------Nav Icons  */}
                     <ul className='flex items-center text-[23px] text-second font-roboto'>
                         <li><Link className='w-[48px] h-[48px] flex items-center justify-center hover:bg-primary hover:text-white rounded-[4px] duration-300' href={'/search'}><IoSearch /></Link></li>
-                        <li><Link className='w-[48px] h-[48px] relative flex items-center justify-center hover:bg-primary hover:text-white rounded-[4px] duration-300' href={'/'}>
+                        <li><Link className='w-[48px] h-[48px] relative flex items-center justify-center hover:bg-primary hover:text-white rounded-[4px] duration-300' href={'/cart'}>
                             <MdOutlineShoppingCart />
                             <div className='w-[16px] h-[16px] absolute top-1.5 right-1.5 bg-[#BA1A1A] rounded-full flex items-center justify-center text-white font-medium text-[11px] leading-[16px]'>
                                 <p>3</p>
