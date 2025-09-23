@@ -7,7 +7,7 @@ import { MdDeleteOutline } from 'react-icons/md'
 const CartProduct = () => {
   return (
     <>
-        <div className='w-full rounded-[24px] p-6 bg-[#FBFBFB] border-1 border-[#E1E4D5] flex items-center gap-3 relative'>
+        <div className='w-full rounded-[24px] bg-[#FBFBFB] border-1 border-[#E1E4D5] flex items-center gap-3 relative'>
                 {/* ----------------------Image */}
                 <div>
                   <Image className='w-[140px]' src={proImg} alt='img'></Image>
@@ -46,7 +46,7 @@ const CartProduct = () => {
                   <h2 className='text-sm text-[#BA1A1A] underline'>Remove</h2>
                   <MdDeleteOutline className='text-[#BA1A1A] text-xl' />
                 </div>
-              </div>
+        </div>
     </>
   )
 }

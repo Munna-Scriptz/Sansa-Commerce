@@ -1,6 +1,10 @@
 import Footer from "./components/common/Footer";
 import Navbar from "./components/common/Navbar";
 import "./globals.css";
+import { Roboto } from "next/font/google";
+
+const roboto = Roboto({ subsets: ["latin"], weight: ["400", "500", "700"] });
+
 
 export const metadata = {
   title: "Sansa E-Commerce",
@@ -10,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${roboto.className}`}>
         <Navbar />
         {children}
         <Footer />

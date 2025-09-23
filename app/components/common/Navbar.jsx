@@ -15,7 +15,7 @@ const Navbar = () => {
                     {/* --------------------Logo  */}
                     <Link href={'/'}><Image src={logo} alt="Logo" /></Link>
                     {/* --------------------Nav Links  */}
-                    <ul className='flex items-center gap-6 text-second font-medium text-base font-roboto'>
+                    <ul className='flex items-center gap-6 text-second font-normal text-base'>
                         <li><Link className='hover:text-[#8AC732] duration-300' href={'/'}>Home</Link></li>
                         <li><Link className='hover:text-[#8AC732] duration-300' href={'/product'}>Products</Link></li>
                         <li><Link className='hover:text-[#8AC732] duration-300' href={'/'}>Blog</Link></li>
