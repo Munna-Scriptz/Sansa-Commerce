@@ -7,7 +7,7 @@ import pay5 from '../../../public/payment5.png'
 import pay6 from '../../../public/payment6.png'
 import Image from 'next/image'
 
-const Summery = () => {
+const Summery = ({path}) => {
   return (
     <div className='flex flex-col gap-[40px]'>
         <div className='w-[490px] rounded-[24px] px-[32px] pt-[32px] pb-[118px] bg-[#FBFBFB]'>
@@ -25,10 +25,10 @@ const Summery = () => {
                     <p className='text-[#44483D] text-[22px]'>Total</p>
                     <p className='text-second text-2xl font-semibold'>16.25 USD</p>
                 </div>
-                <button className={`relative flex items-center justify-center py-[12px] px-[38px] overflow-hidden text-white bg-primary group rounded-full w-full cursor-pointer`}>
+                <a href={path} className={`relative flex items-center justify-center py-[12px] px-[38px] overflow-hidden text-white bg-primary group rounded-full w-full cursor-pointer`}>
                     <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-second rounded-full group-hover:w-86 group-hover:h-56"></span>
                     <span className="relative text-[16px] font-roboto font-medium">Continue</span>
-                </button>
+                </a>
             </div>
         </div>
         {/* ------------------------Payment Accept----------------- */}

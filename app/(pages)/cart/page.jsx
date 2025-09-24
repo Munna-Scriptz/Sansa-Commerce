@@ -28,7 +28,7 @@ const page = () => {
             </section>
 
             {/* ---------------------- Summery ------------------ */}
-            <Summery />
+            <Summery path={'/shipping'} />
 
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import BreadCrumb from '../common/BreadCrumb'
 
-const CartHead = () => {
+const ShippingHead = () => {
   return (
     <>
         <main id='Shopping-Bag'>
@@ -23,13 +23,13 @@ const CartHead = () => {
         
                       {/* --------Step 2-------- */}
                       <div className="flex flex-col items-center w-1/3">
-                        <div className="w-6 h-6 rounded-full bg-white border border-gray-500"></div>
+                        <div className="w-6 h-6 rounded-full bg-primary border border-[#44483D]"></div>
                         <span className="mt-2 text-base text-second">Shipping</span>
                       </div>
         
                       {/* ------Step 3------ */}
                       <div className="flex flex-col items-center w-1/3">
-                        <div className="w-6 h-6 rounded-full bg-white border border-gray-500"></div>
+                        <div className="w-6 h-6 rounded-full bg-white border border-[#44483D]"></div>
                         <span className="mt-2 text-base text-second">Payment</span>
                       </div>
         
@@ -40,4 +40,4 @@ const CartHead = () => {
   )
 }
 
-export default CartHead
+export default ShippingHead
