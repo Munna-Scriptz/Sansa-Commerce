@@ -10,8 +10,8 @@ const PayHead = () => {
                 <div className='container mt-[36px]'>
                   <div className='font-roboto leading-[24px] font-medium text-lg text-[#B3B7B1] flex items-center gap-1'>
                     <Link href={'/'}>Home /</Link>
-                    <Link href={'/'}>Shopping bag /</Link>
-                    <Link href={'/'}>Shipping /</Link>
+                    <Link href={'/cart'}>Shopping bag /</Link>
+                    <Link href={'/shipping'}>Shipping /</Link>
                     <p className='text-second'>Payment</p>
                   </div>
                 </div>

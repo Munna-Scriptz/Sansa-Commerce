@@ -1,10 +1,14 @@
 import React from 'react'
-import { MdCreditCard } from 'react-icons/md'
+import { MdCreditCard, MdOutlineAlternateEmail, MdOutlinePassword } from 'react-icons/md'
 import paypal from '../../../public/payment4.png'
 import gPay from '../../../public/payment3.png'
 import aPay from '../../../public/payment5.png'
 
 import Image from 'next/image'
+import { FaRegUserCircle } from 'react-icons/fa'
+import { IoCalendarOutline } from 'react-icons/io5'
+import { LuCalendar1 } from 'react-icons/lu'
+import Link from 'next/link'
 
 const Methods = () => {
     return (
@@ -68,8 +72,48 @@ const Methods = () => {
                 </label>
             </div>
 
+            {/* --------------- Methods Data -------------------- */}
+            <div className='flex items-center gap-8 mt-[68px]'>
+                <fieldset className='w-[470px] h-[66px] pb-3 border-1 border-[#8D918C] rounded-[8px]'>
+                    <legend className='text-subText text-sm ml-6 px-2'>Name on the card</legend>
+                    <div className='flex items-center h-full w-full px-3'>
+                        <FaRegUserCircle className='text-[22px] text-subText' />
+                        <input className='h-full pl-3 text-second w-full outline-none' placeholder='Enter name on card' type="name" id="name" />
+                    </div>
+                </fieldset>
 
+                <fieldset className='w-[224px] h-[66px] pb-3 border-1 border-[#8D918C] rounded-[8px]'>
+                    <legend className='text-subText text-sm ml-6 px-2'>Expired date</legend>
+                    <div className='flex items-center h-full w-full px-3'>
+                        <LuCalendar1 className='text-[22px] text-subText' />
+                        <input className='h-full pl-3 text-second w-full outline-none' placeholder='Enter expired date' type="date" id="date" />
+                    </div>
+                </fieldset>
+            </div>
+            <div className='flex items-center gap-8 mt-[40px]'>
+                <fieldset className='w-[470px] h-[66px] pb-3 border-1 border-[#8D918C] rounded-[8px]'>
+                    <legend className='text-subText text-sm ml-6 px-2'>Card number</legend>
+                    <div className='flex items-center h-full w-full px-3'>
+                        <MdCreditCard className='text-[22px] text-subText' />
+                        <input className='h-full pl-3 text-second w-full outline-none' placeholder='Enter card number' type="number" id="number" />
+                    </div>
+                </fieldset>
 
+                <fieldset className='w-[224px] h-[66px] pb-3 border-1 border-[#8D918C] rounded-[8px]'>
+                    <legend className='text-subText text-sm ml-6 px-2'>CVV</legend>
+                    <div className='flex items-center h-full w-full px-3'>
+                        <MdOutlinePassword className='text-[22px] text-subText' />
+                        <input className='h-full pl-3 text-second w-full outline-none' placeholder='Enter CVV' type="cvv" id="cvv" />
+                    </div>
+                </fieldset>
+            </div>
+
+            {/* ---------------Where are they  */}
+            <div className='flex items-center justify-end gap-2 mt-11'>
+                <Link className='text-[#44483D] text-sm underline underline-offset-2' href={'/'}>Where is Card number?</Link>
+                <Link className='text-[#44483D] text-sm underline underline-offset-2' href={'/'}>Where is Expired date?</Link>
+                <Link className='text-[#44483D] text-sm underline underline-offset-2' href={'/'}>Where is my CVV?</Link>
+            </div>
 
 
 
