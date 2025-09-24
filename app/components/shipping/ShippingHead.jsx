@@ -1,13 +1,20 @@
 import React from 'react'
-import BreadCrumb from '../common/BreadCrumb'
+import Link from 'next/link'
 
 const ShippingHead = () => {
   return (
     <>
         <main id='Shopping-Bag'>
             <section id='Cart-Header'>
-                <BreadCrumb pageName={'Shopping Bag'}/>
-                <h2 className='container text-second mt-6 text-[28px] leading-[36px]'>Shopping Bag</h2>
+              {/* -----------------Bread Crumb------------ */}
+                <div className='container mt-[36px]'>
+                  <div className='font-roboto leading-[24px] font-medium text-lg text-[#B3B7B1] flex items-center gap-1'>
+                    <Link href={'/'}>Home /</Link>
+                    <Link href={'/'}>Shopping bag /</Link>
+                    <p className='text-second'>Shipping page</p>
+                  </div>
+                </div>
+                <h2 className='container text-second mt-6 text-[28px] leading-[36px]'>Shipping</h2>
             </section>
             {/* --------------------------Buy Progress Bar----------------------------- */}
             <div className="container">
