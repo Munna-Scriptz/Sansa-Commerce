@@ -15,7 +15,7 @@ const page = () => {
             <ShipDetails />
 
             {/* ---------------------- Summery ------------------ */}
-            <Summery />
+            <Summery path={'/payment'}/>
 
           </div>
         </div>
