@@ -95,7 +95,7 @@ const ShipDetails = () => {
 
             {/* ------------------Third Row ----------------- */}
             <div className='mt-12'>
-                <h2 className='text-[22px] text-second mb-8'>Delivery options</h2>
+                <h2 className='text-[22px] text-second mb-6'>Delivery options</h2>
                 <div className='flex items-center flex-col gap-y-[16px]'>
                     <label class="w-full h-[48px] rounded-[4px] cursor-pointer border border-[#8D918C] select-none px-[20px] py-[12px] transition hover:bg-gray-50 flex items-center has-[:checked]:bg-brand">
                         <input id="Option1" name='delivery' type="radio" class="peer sr-only" />
@@ -106,7 +106,7 @@ const ShipDetails = () => {
                         </span>
                         <div class="flex items-center justify-between gap-2 w-full ml-4">
                             <div class="flex items-center gap-4">
-                            <p class="text-subText text-base peer-checked:text-white">Option 1</p>
+                            <p class="text-subText text-base peer-checked:text-white">Normal delivery</p>
                             </div>
                             <div class="text-subText peer-checked:text-white">
                             <p>Free</p>
@@ -123,7 +123,7 @@ const ShipDetails = () => {
                         </span>
                         <div class="flex items-center justify-between gap-2 w-full ml-4">
                             <div class="flex items-center gap-4">
-                            <p class="text-subText text-base peer-checked:text-white">Option 2</p>
+                            <p class="text-subText text-base peer-checked:text-white">Fast Delivery</p>
                             </div>
                             <div class="text-subText peer-checked:text-white">
                             <p>20 USD</p>
@@ -133,6 +133,52 @@ const ShipDetails = () => {
                 </div>
             </div>
 
+            {/* ------------------Fourth Row ----------------- */}
+            <div className='mt-12'>
+                <h2 className='text-[22px] text-second mb-6'>Packaging options</h2>
+                <div className='flex items-center flex-col gap-y-[16px]'>
+                    <label class="w-full h-[48px] rounded-[4px] cursor-pointer border border-[#8D918C] select-none px-[20px] py-[12px] transition hover:bg-gray-50 flex items-center has-[:checked]:bg-brand">
+                        <input id="Option1" name='packaging' type="radio" class="peer sr-only" />
+                        <span class="relative w-6 h-6 flex justify-center items-center bg-gray-100 border-2 border-gray-400 rounded-full transition-all duration-300 peer-checked:bg-primary peer-checked:border-primary">
+                            <svg class="hidden w-4 h-4 text-white peer-checked:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        <div class="flex items-center justify-between gap-2 w-full ml-4">
+                            <div class="flex items-center gap-4">
+                            <p class="text-subText text-base peer-checked:text-white">Normal packaging</p>
+                            </div>
+                            <div class="text-subText peer-checked:text-white">
+                            <p>Free</p>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="w-full h-[48px] rounded-[4px] cursor-pointer border border-[#8D918C] select-none px-[20px] py-[12px] transition hover:bg-gray-50 flex items-center has-[:checked]:bg-brand">
+                        <input id="Option2" name='packaging' type="radio" class="peer sr-only" />
+                        <span class="relative w-6 h-6 flex justify-center items-center bg-gray-100 border-2 border-gray-400 rounded-full transition-all duration-300 peer-checked:bg-primary peer-checked:border-primary">
+                            <svg class="hidden w-4 h-4 text-white peer-checked:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        <div class="flex items-center justify-between gap-2 w-full ml-4">
+                            <div class="flex items-center gap-4">
+                            <p class="text-subText text-base peer-checked:text-white">Super secure/flexible</p>
+                            </div>
+                            <div class="text-subText peer-checked:text-white">
+                            <p>20 USD</p>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            {/* -----------------------Location  */}
+            <button className={`relative mt-[41px] flex items-center justify-center py-[12px] px-[38px] border-1 border-[#6A6C68] overflow-hidden text-primary group hover:text-white hover:bg-primary group rounded-full cursor-pointer duration-300`}>
+                <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-second rounded-full group-hover:w-86 group-hover:h-56"></span>
+                <span className="relative text-[16px] font-roboto font-medium flex items-center gap-2"><IoLocationOutline className='text-xl text-second group-hover:text-primary duration-500' /> Use the address you are on now</span>
+            </button>
+            <p className='text-second leading-[24px] mt-[137px]'>We'll contact you in case anything comes up with your order.</p>
         </section>
     </>
   )
