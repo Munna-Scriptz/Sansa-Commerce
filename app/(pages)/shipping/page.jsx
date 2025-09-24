@@ -1,5 +1,5 @@
-import CartHead from '@/app/components/cart/CartHead'
 import Summery from '@/app/components/cart/Summery'
+import ShipDetails from '@/app/components/shipping/ShipDetails';
 import ShippingHead from '@/app/components/shipping/ShippingHead';
 import React from 'react'
 
@@ -12,9 +12,7 @@ const page = () => {
         <div className="container">
           <div id="Product-Row" className='flex items-start justify-between gap-5'>
             {/* ---------------------- Product ------------------ */}
-            <section className='w-[775px] rounded-[24px] bg-[#FBFBFB] p-6'>
-
-            </section>
+            <ShipDetails />
 
             {/* ---------------------- Summery ------------------ */}
             <Summery />
