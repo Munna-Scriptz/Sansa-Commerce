@@ -97,35 +97,35 @@ const ShipDetails = () => {
             <div className='mt-12'>
                 <h2 className='text-[22px] text-second mb-6'>Delivery options</h2>
                 <div className='flex items-center flex-col gap-y-[16px]'>
-                    <label class="w-full h-[48px] rounded-[4px] cursor-pointer border border-[#8D918C] select-none px-[20px] py-[12px] transition hover:bg-gray-50 flex items-center has-[:checked]:bg-brand">
-                        <input id="Option1" name='delivery' type="radio" class="peer sr-only" />
-                        <span class="relative w-6 h-6 flex justify-center items-center bg-gray-100 border-2 border-gray-400 rounded-full transition-all duration-300 peer-checked:bg-primary peer-checked:border-primary">
-                            <svg class="hidden w-4 h-4 text-white peer-checked:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    <label className="w-full h-[48px] rounded-[4px] cursor-pointer border border-[#8D918C] select-none px-[20px] py-[12px] transition hover:bg-gray-50 flex items-center has-[:checked]:bg-brand">
+                        <input id="Option1" name='delivery' type="radio" className="peer sr-only" />
+                        <span className="relative w-6 h-6 flex justify-center items-center bg-gray-100 border-2 border-gray-400 rounded-full transition-all duration-300 peer-checked:bg-primary peer-checked:border-primary">
+                            <svg className="hidden w-4 h-4 text-white peer-checked:block" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                         </span>
-                        <div class="flex items-center justify-between gap-2 w-full ml-4">
-                            <div class="flex items-center gap-4">
-                            <p class="text-subText text-base peer-checked:text-white">Normal delivery</p>
+                        <div className="flex items-center justify-between gap-2 w-full ml-4">
+                            <div className="flex items-center gap-4">
+                            <p className="text-subText text-base peer-checked:text-white">Normal delivery</p>
                             </div>
-                            <div class="text-subText peer-checked:text-white">
+                            <div className="text-subText peer-checked:text-white">
                             <p>Free</p>
                             </div>
                         </div>
                     </label>
 
-                    <label class="w-full h-[48px] rounded-[4px] cursor-pointer border border-[#8D918C] select-none px-[20px] py-[12px] transition hover:bg-gray-50 flex items-center has-[:checked]:bg-brand">
-                        <input id="Option2" name='delivery' type="radio" class="peer sr-only" />
-                        <span class="relative w-6 h-6 flex justify-center items-center bg-gray-100 border-2 border-gray-400 rounded-full transition-all duration-300 peer-checked:bg-primary peer-checked:border-primary">
-                            <svg class="hidden w-4 h-4 text-white peer-checked:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    <label className="w-full h-[48px] rounded-[4px] cursor-pointer border border-[#8D918C] select-none px-[20px] py-[12px] transition hover:bg-gray-50 flex items-center has-[:checked]:bg-brand">
+                        <input id="Option2" name='delivery' type="radio" className="peer sr-only" />
+                        <span className="relative w-6 h-6 flex justify-center items-center bg-gray-100 border-2 border-gray-400 rounded-full transition-all duration-300 peer-checked:bg-primary peer-checked:border-primary">
+                            <svg className="hidden w-4 h-4 text-white peer-checked:block" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                         </span>
-                        <div class="flex items-center justify-between gap-2 w-full ml-4">
-                            <div class="flex items-center gap-4">
-                            <p class="text-subText text-base peer-checked:text-white">Fast Delivery</p>
+                        <div className="flex items-center justify-between gap-2 w-full ml-4">
+                            <div className="flex items-center gap-4">
+                            <p className="text-subText text-base peer-checked:text-white">Fast Delivery</p>
                             </div>
-                            <div class="text-subText peer-checked:text-white">
+                            <div className="text-subText peer-checked:text-white">
                             <p>20 USD</p>
                             </div>
                         </div>
@@ -137,35 +137,35 @@ const ShipDetails = () => {
             <div className='mt-12'>
                 <h2 className='text-[22px] text-second mb-6'>Packaging options</h2>
                 <div className='flex items-center flex-col gap-y-[16px]'>
-                    <label class="w-full h-[48px] rounded-[4px] cursor-pointer border border-[#8D918C] select-none px-[20px] py-[12px] transition hover:bg-gray-50 flex items-center has-[:checked]:bg-brand">
-                        <input id="Option1" name='packaging' type="radio" class="peer sr-only" />
-                        <span class="relative w-6 h-6 flex justify-center items-center bg-gray-100 border-2 border-gray-400 rounded-full transition-all duration-300 peer-checked:bg-primary peer-checked:border-primary">
-                            <svg class="hidden w-4 h-4 text-white peer-checked:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    <label className="w-full h-[48px] rounded-[4px] cursor-pointer border border-[#8D918C] select-none px-[20px] py-[12px] transition hover:bg-gray-50 flex items-center has-[:checked]:bg-brand">
+                        <input id="Option1" name='packaging' type="radio" className="peer sr-only" />
+                        <span className="relative w-6 h-6 flex justify-center items-center bg-gray-100 border-2 border-gray-400 rounded-full transition-all duration-300 peer-checked:bg-primary peer-checked:border-primary">
+                            <svg className="hidden w-4 h-4 text-white peer-checked:block" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                         </span>
-                        <div class="flex items-center justify-between gap-2 w-full ml-4">
-                            <div class="flex items-center gap-4">
-                            <p class="text-subText text-base peer-checked:text-white">Normal packaging</p>
+                        <div className="flex items-center justify-between gap-2 w-full ml-4">
+                            <div className="flex items-center gap-4">
+                            <p className="text-subText text-base peer-checked:text-white">Normal packaging</p>
                             </div>
-                            <div class="text-subText peer-checked:text-white">
+                            <div className="text-subText peer-checked:text-white">
                             <p>Free</p>
                             </div>
                         </div>
                     </label>
 
-                    <label class="w-full h-[48px] rounded-[4px] cursor-pointer border border-[#8D918C] select-none px-[20px] py-[12px] transition hover:bg-gray-50 flex items-center has-[:checked]:bg-brand">
-                        <input id="Option2" name='packaging' type="radio" class="peer sr-only" />
-                        <span class="relative w-6 h-6 flex justify-center items-center bg-gray-100 border-2 border-gray-400 rounded-full transition-all duration-300 peer-checked:bg-primary peer-checked:border-primary">
-                            <svg class="hidden w-4 h-4 text-white peer-checked:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    <label className="w-full h-[48px] rounded-[4px] cursor-pointer border border-[#8D918C] select-none px-[20px] py-[12px] transition hover:bg-gray-50 flex items-center has-[:checked]:bg-brand">
+                        <input id="Option2" name='packaging' type="radio" className="peer sr-only" />
+                        <span className="relative w-6 h-6 flex justify-center items-center bg-gray-100 border-2 border-gray-400 rounded-full transition-all duration-300 peer-checked:bg-primary peer-checked:border-primary">
+                            <svg className="hidden w-4 h-4 text-white peer-checked:block" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                         </span>
-                        <div class="flex items-center justify-between gap-2 w-full ml-4">
-                            <div class="flex items-center gap-4">
-                            <p class="text-subText text-base peer-checked:text-white">Super secure/flexible</p>
+                        <div className="flex items-center justify-between gap-2 w-full ml-4">
+                            <div className="flex items-center gap-4">
+                            <p className="text-subText text-base peer-checked:text-white">Super secure/flexible</p>
                             </div>
-                            <div class="text-subText peer-checked:text-white">
+                            <div className="text-subText peer-checked:text-white">
                             <p>20 USD</p>
                             </div>
                         </div>
