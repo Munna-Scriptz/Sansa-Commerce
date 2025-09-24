@@ -45,7 +45,7 @@ const ShipDetails = () => {
             </div>
 
             {/* ------------------Second Row ----------------- */}
-            <div className='mt-[48px]'>
+            <div className='mt-12'>
                 <h2 className='text-[22px] text-second mb-8'>Shipping Address</h2>
                 <div className='flex items-center flex-wrap gap-x-[32px] gap-y-[24px]'>
                     <fieldset className='w-[328px] h-[62px] pb-3 border-1 border-[#8D918C] rounded-[8px]'>
@@ -92,7 +92,47 @@ const ShipDetails = () => {
                     </fieldset>
                 </div>
             </div>
-            
+
+            {/* ------------------Third Row ----------------- */}
+            <div className='mt-12'>
+                <h2 className='text-[22px] text-second mb-8'>Delivery options</h2>
+                <div className='flex items-center flex-col gap-y-[16px]'>
+                    <label class="w-full h-[48px] rounded-[4px] cursor-pointer border border-[#8D918C] select-none px-[20px] py-[12px] transition hover:bg-gray-50 flex items-center has-[:checked]:bg-brand">
+                        <input id="Option1" name='delivery' type="radio" class="peer sr-only" />
+                        <span class="relative w-6 h-6 flex justify-center items-center bg-gray-100 border-2 border-gray-400 rounded-full transition-all duration-300 peer-checked:bg-primary peer-checked:border-primary">
+                            <svg class="hidden w-4 h-4 text-white peer-checked:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        <div class="flex items-center justify-between gap-2 w-full ml-4">
+                            <div class="flex items-center gap-4">
+                            <p class="text-subText text-base peer-checked:text-white">Option 1</p>
+                            </div>
+                            <div class="text-subText peer-checked:text-white">
+                            <p>Free</p>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="w-full h-[48px] rounded-[4px] cursor-pointer border border-[#8D918C] select-none px-[20px] py-[12px] transition hover:bg-gray-50 flex items-center has-[:checked]:bg-brand">
+                        <input id="Option2" name='delivery' type="radio" class="peer sr-only" />
+                        <span class="relative w-6 h-6 flex justify-center items-center bg-gray-100 border-2 border-gray-400 rounded-full transition-all duration-300 peer-checked:bg-primary peer-checked:border-primary">
+                            <svg class="hidden w-4 h-4 text-white peer-checked:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
+                        <div class="flex items-center justify-between gap-2 w-full ml-4">
+                            <div class="flex items-center gap-4">
+                            <p class="text-subText text-base peer-checked:text-white">Option 2</p>
+                            </div>
+                            <div class="text-subText peer-checked:text-white">
+                            <p>20 USD</p>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
         </section>
     </>
   )
