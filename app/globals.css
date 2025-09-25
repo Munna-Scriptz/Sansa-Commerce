@@ -112,7 +112,7 @@ nav{
 
 /* -----------------------------------Slider Dots*/
 .slider-Banner-container .slick-dots {
-  bottom: -40px !important;
+  bottom: -30px !important;
 }
 .slider-Banner-container .slick-dots li.slick-active button:before {
   opacity: 1 !important;

@@ -5,6 +5,10 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 import SingleBannerSlider from './SingleBannerSlider';
 
+import BannerImage1 from '../../../public/bannerSlide.png'
+import BannerImage2 from '../../../public/bannerImg2.png'
+import BannerImage3 from '../../../public/bannerImg3.png'
+
 const Banner = () => {
     const settings = {
         dots: true,
@@ -16,7 +20,7 @@ const Banner = () => {
         autoplay: true,
         speed: 1000,
         autoplaySpeed: 3500,
-            responsive: [
+        responsive: [
       {
         breakpoint: 1024,
         settings: {
@@ -57,9 +61,9 @@ const Banner = () => {
                 {/* -------------Slider------------- */}
                 <div className="slider-Banner-container">
                     <Slider {...settings}>
-                        <SingleBannerSlider />
-                        <SingleBannerSlider />
-                        <SingleBannerSlider />
+                        <SingleBannerSlider image={BannerImage1} headerText={`Product Collection`} subtext={`Welcome to our online fashion haven, where we invite you to embark on a thrilling journey of discovery. We understand that fashion is an expression of your unique personality, and we've curated an extensive collection of dresses, shoes, and more to help you find your new favorites.`}/>
+                        <SingleBannerSlider image={BannerImage2} headerText={`Best Quality Over Quantity`} subtext={`Welcome to our online fashion haven, where we invite you to embark on a thrilling journey of discovery. We understand that fashion is an expression of your unique personality, and we've curated an extensive collection of dresses, shoes, and more to help you find your new favorites.`} />
+                        <SingleBannerSlider image={BannerImage3} headerText={`Find Clothes That Matches Your Vibe`} subtext={`Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.`} />
                     </Slider>
                 </div>
             </div>
