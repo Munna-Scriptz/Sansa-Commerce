@@ -52,7 +52,7 @@ const NewProducts = () => {
                         <Slider {...settings}>
                             {
                                 myPro.map((item , i)=>(
-                                    <SingleSeller img={item.img} key={i}/>
+                                    <SingleSeller img={item.img} key={i} proName={'Warning T-Shirt'} proDetails={'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore, enim?'} proPrice={'8.00 USD'}/>
                                 ))
                             }
                         </Slider>
