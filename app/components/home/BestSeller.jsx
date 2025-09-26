@@ -20,6 +20,12 @@ const BestSeller = () => {
         autoplay: true,
     }
 
+    // ------------------ Switching Tabs -------------------
+    const [showTab , setShowTab] = useState('tab1')
+    console.log(showTab)
+    
+
+
     const myPro = [
         {
             img: img1,
@@ -35,15 +41,13 @@ const BestSeller = () => {
         },
     ]
 
-    // ------------------ Tabs -------------------
-    const [showTab , setShowTab] = useState('tab1')
-    console.log(showTab)
+
   return (
     <>
         <section id='Best-Seller' className='mt-[112px]'>
             <div className="container">
                 <div id="Best-Seller-Row">
-                    {/* ----------------------Head Text & Tabs-------------------- */}
+                    {/* ------------------------------------ Head Text & Tabs ----------------------------- */}
                     <CommonHead text={'Best Seller Products'}/>
                     <div className='mt-[48px] flex items-center justify-between'>
                         <div className='bg-primary rounded-[8px] h-[4px] max-w-[100%] w-[38%]'></div>
@@ -56,10 +60,10 @@ const BestSeller = () => {
                             <label htmlFor="shoes" className="peer-checked/shoes:bg-primary peer-checked/shoes:text-white bg-transparent text-second font-roboto cursor-pointer rounded-[8px] py-2.5 px-6.5 transition-colors duration-200">Shoes</label>
                         </div>
 
-
                         <div className='bg-primary rounded-[8px] h-[4px] max-w-[100%] w-[38%]'></div>
                     </div>
-                    {/* ----------------------Seller Slider-------------------- */}
+
+                    {/* ---------------------------------- Seller Slider ----------------------------------- */}
                     {
                         showTab === 'tab1'?
                             <div className="slider-container mt-[77px]">

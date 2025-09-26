@@ -52,7 +52,7 @@ const SpecialOffer = () => {
                         <Slider {...settings}>
                             {
                                 myPro.map((item , i)=>(
-                                    <SingleDiscount img={item.img} key={i}/>
+                                    <SingleDiscount key={i} img={item.img} proName={'Warning T-Shirt'} ProDetails={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore, enim?`} proPrice={'8.00 USD'}/>
                                 ))
                             }
                         </Slider>

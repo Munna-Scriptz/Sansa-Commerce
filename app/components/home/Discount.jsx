@@ -10,15 +10,15 @@ import Slider from 'react-slick'
 import SingleDiscount from '../common/SingleDiscount'
 const Discount = () => {
     const settings = {
-            className: "center",
-            centerMode: true,
-            infinite: true,
-            centerPadding: "60px",
-            slidesToShow: 3,
-            speed: 500,
-            autoplay: true,
-        }
-    
+        className: "center",
+        centerMode: true,
+        infinite: true,
+        centerPadding: "60px",
+        slidesToShow: 3,
+        speed: 500,
+        autoplay: true,
+    }
+
     const myPro = [
         {
             img: img1,
@@ -33,23 +33,26 @@ const Discount = () => {
             img: img4,
         },
     ]
+
   return (
     <>
         <section id='Discount' className='mt-[112px]'>
             <div className="container">
                 <div id="Discount-Row">
-                    {/* -----------------Header----------------- */}
-                    <CommonHead text={'Discount Products    '}/>
-                    {/* -----------------Discount Slider----------------- */}
+                    {/* ----------------- Header Text ----------------- */}
+                    <CommonHead text={'Discount Products'}/>
+
+                    {/* ----------------- Discount Slider ----------------- */}
                     <div className="slider-container mt-[77px]">
                         <Slider {...settings}>
                             {
                                 myPro.map((item , i)=>(
-                                    <SingleDiscount img={item.img} key={i}/>
+                                    <SingleDiscount key={i} img={item.img} proName={'Warning T-Shirt'} ProDetails={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore, enim?`} proPrice={'8.00 USD'}/>
                                 ))
                             }
                         </Slider>
                     </div>
+
                 </div>
             </div>
         </section>

@@ -13,8 +13,8 @@ const page = () => {
       <Banner/>
       <Brands/>
       <BestSeller/>
-      <Counter/>
       <Discount/>
+      <Counter/>
       <Order/>
       <Touch/>
     </>

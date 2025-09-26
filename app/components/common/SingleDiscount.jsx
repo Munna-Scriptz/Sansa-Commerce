@@ -3,17 +3,17 @@ import Image from 'next/image'
 import { FaPlus } from 'react-icons/fa6'
 import { MdAddShoppingCart } from 'react-icons/md'
 
-const SingleDiscount = ({img}) => {
+const SingleDiscount = ({img , proName , ProDetails , proPrice}) => {
   return (
     <>
         <div className='w-[338px] border-1 border-gray-300 p-6 rounded-[8px] relative'>
             <Image src={img} alt='Image'></Image>
-            <h2 className='text-second text-[26px] mt-6 mb-2'>Warning t-shirt</h2>
-            <p className='text-subText text-base'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore, enim?</p>
+            <h2 className='text-second text-[26px] mt-6 mb-2'>{proName}</h2>
+            <p className='text-subText text-base'>{ProDetails}</p>
             {/* ----Price  */}
             <div className='flex items-center justify-between mt-4'>
                 <div className='flex items-center gap-3'>
-                    <h2 className='text-second font-medium text-xl font-inter'>8.00 USD</h2>
+                    <h2 className='text-second font-medium text-xl font-inter'>{proPrice}</h2>
                     <p className='text-[#8D918C] line-through font-medium text-sm font-inter'>8.00 USD</p>
                 </div>
                 <div className='w-[40px] h-[40px] bg-primary text-white rounded-full flex items-center hover:bg-second duration-300 justify-center cursor-pointer text-lg'>
