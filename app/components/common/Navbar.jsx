@@ -35,7 +35,7 @@ const Navbar = () => {
                                 <p>3</p>
                             </div>
                         </Link></li>
-                        <li><Link className='w-[48px] h-[48px] flex items-center justify-center hover:bg-primary hover:text-white rounded-[4px] duration-300' href={'/'}><FaRegCircleUser /></Link></li>
+                        <li><Link onClick={()=>{setValue(!value)}} className='w-[48px] h-[48px] flex items-center justify-center hover:bg-primary hover:text-white rounded-[4px] duration-300' href={'/'}><FaRegCircleUser /></Link></li>
                     </ul>
                 </div>
             </div>
