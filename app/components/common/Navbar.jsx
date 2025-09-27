@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useState , startTransition  } from 'react'
 import logo from '../../../public/logo.svg'
 import Image from 'next/image'
 import { IoSearch } from "react-icons/io5";
@@ -8,8 +8,15 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import LoginOrRegis from './LoginOrRegis'
-
+import { useProgress } from "react-transition-progress";
 const Navbar = () => {
+    const startProgress = useProgress();
+    const handleDelay = async ()=>{
+        startTransition(async () => {
+            startProgress();
+            await new Promise((resolve) => setTimeout(resolve, 2000)); 
+        });
+    }
     const [value , setValue] = useState(true)
   return (
     <>
@@ -17,9 +24,9 @@ const Navbar = () => {
             <div className="container">
                 <div id="Navbar-Row" className='flex items-center justify-between'>
                     {/* --------------------Logo  */}
-                    <Link href={'/'}><Image src={logo} alt="Logo" /></Link>
+                    <Link href={'/'} onClick={()=>handleDelay()}><Image src={logo} alt="Logo" /></Link>
                     {/* --------------------Nav Links  */}
-                    <ul className='flex items-center gap-6 text-second font-normal text-base'>
+                    <ul className='flex items-center gap-6 text-second font-normal text-base' onClick={()=>handleDelay()}>
                         <li><Link className='hover:text-[#8AC732] duration-300' href={'/'}>Home</Link></li>
                         <li><Link className='hover:text-[#8AC732] duration-300' href={'/product'}>Products</Link></li>
                         <li><Link className='hover:text-[#8AC732] duration-300' href={'/'}>Blog</Link></li>
@@ -28,14 +35,14 @@ const Navbar = () => {
                     </ul>
                     {/* --------------------Nav Icons  */}
                     <ul className='flex items-center text-[23px] text-second font-roboto'>
-                        <li><Link className='w-[48px] h-[48px] flex items-center justify-center hover:bg-primary hover:text-white rounded-[4px] duration-300' href={'/search'}><IoSearch /></Link></li>
-                        <li><Link className='w-[48px] h-[48px] relative flex items-center justify-center hover:bg-primary hover:text-white rounded-[4px] duration-300' href={'/cart'}>
+                        <li onClick={()=>handleDelay()}><Link className='w-[48px] h-[48px] flex items-center justify-center hover:bg-primary hover:text-white rounded-[4px] duration-300' href={'/search'}><IoSearch /></Link></li>
+                        <li onClick={()=>handleDelay()}><Link className='w-[48px] h-[48px] relative flex items-center justify-center hover:bg-primary hover:text-white rounded-[4px] duration-300' href={'/cart'}>
                             <MdOutlineShoppingCart />
                             <div className='w-[16px] h-[16px] absolute top-1.5 right-1.5 bg-[#BA1A1A] rounded-full flex items-center justify-center text-white font-medium text-[11px] leading-[16px]'>
                                 <p>3</p>
                             </div>
                         </Link></li>
-                        <li><Link onClick={()=>{setValue(!value)}} className='w-[48px] h-[48px] flex items-center justify-center hover:bg-primary hover:text-white rounded-[4px] duration-300' href={'/'}><FaRegCircleUser /></Link></li>
+                        <li onClick={()=>handleDelay()}><button onClick={()=>{setValue(!value)}} className='w-[48px] h-[48px] flex items-center justify-center hover:bg-primary hover:text-white rounded-[4px] duration-300'><FaRegCircleUser /></button></li>
                     </ul>
                 </div>
             </div>

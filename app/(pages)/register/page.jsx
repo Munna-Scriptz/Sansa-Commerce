@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import logo from '../../../public/logo.svg'
 import Image from 'next/image'
 import { MdOutlineAlternateEmail, MdOutlineLockOpen } from 'react-icons/md'
-import { FaRegUserCircle } from 'react-icons/fa'
+import { FaRegEye, FaRegEyeSlash, FaRegUserCircle } from 'react-icons/fa'
 import Link from 'next/link'
 import { Bounce, toast, ToastContainer } from 'react-toastify'
 
@@ -18,7 +18,7 @@ const page = () => {
             username: ''
         }
     )
-
+    const [pass , showPass] = useState(false)
     // ------------------ API Variables
     const url = 'https://api.freeapi.app/api/v1/users/register';
     const options = {
@@ -38,7 +38,6 @@ const page = () => {
             passAgain: '',
             passAgainError: 'Confirm password',
             passAgainCol: 'text-subText',
-            roleError: 'ADMIN'
         }
     )
 
@@ -112,7 +111,7 @@ const page = () => {
                 <div id="Register-Row">
                     {/* -------------------------- logo ------------------   */}
                     <div className='flex items-center justify-center'>
-                        <Image className='w-[144px]' src={logo} alt='logo'/>
+                        <Image className='w-[144px]' property='false' src={logo} alt='logo'/>
                     </div>
                     {/* -------------------------- logo ------------------   */}
                     <form onSubmit={handleForm} className='w-[700px] mt-6 mx-auto border-1 border-[#DADFD8] rounded-[24px] p-[36px]'>
@@ -129,7 +128,7 @@ const page = () => {
                                 <legend className={`${formError.nameErrorCol} text-base ml-6 px-2`}>{formError.nameError}</legend>
                                 <div className='flex items-center h-full w-full px-3'>
                                     <FaRegUserCircle className='text-[22px] text-subText' />
-                                    <input onChange={(e)=>{setFormData((prev)=>({...prev , username: e.target.value})), setFormError((prev)=>({...prev , nameError: 'Name' , nameErrorCol: 'text-subText'}))}} className='h-full pl-3 text-second w-full outline-none' placeholder='Enter Your Name' type="username" id="username" />
+                                    <input onChange={(e)=>{setFormData((prev)=>({...prev , username: e.target.value})), setFormError((prev)=>({...prev , nameError: 'Name' , nameErrorCol: 'text-subText'}))}} className='h-full pl-3 text-second w-full outline-none' placeholder='Enter Your Name' type="username" id="username" autoComplete='username' />
                                 </div>
                             </fieldset>
                             {/* --------------Email  */}
@@ -138,7 +137,7 @@ const page = () => {
                                 <div className='flex items-center justify-between h-full w-full px-3'>
                                     <div className='flex items-center h-full w-full'>
                                         <MdOutlineAlternateEmail className='text-2xl text-subText' />
-                                        <input onChange={(e)=>{setFormData((prev)=>({...prev , email: e.target.value})), setFormError((prev)=>({...prev , emailError: 'Email' , emailErrorCol: 'text-subText'}))}} className='h-full pl-3 text-second w-full outline-none' placeholder='Enter Email' type="email" id="email" />
+                                        <input onChange={(e)=>{setFormData((prev)=>({...prev , email: e.target.value})), setFormError((prev)=>({...prev , emailError: 'Email' , emailErrorCol: 'text-subText'}))}} className='h-full pl-3 text-second w-full outline-none' placeholder='Enter Email' type="email" autoComplete='email' id="email" />
                                     </div>
                                     <h2 className='text-subText text-end'>@gmail.com</h2>
                                 </div>
@@ -146,17 +145,35 @@ const page = () => {
                             {/* --------------Password  */}
                             <fieldset className='w-full h-[70px] pb-3 border-1 border-[#8D918C] rounded-[8px] mt-6'>
                                 <legend className={`${formError.passwordErrorCol} text-base ml-6 px-2`}>{formError.passwordError}</legend>
-                                <div className='flex items-center h-full w-full px-3'>
-                                    <MdOutlineLockOpen className='text-2xl text-subText' />
-                                    <input onChange={(e)=>{setFormData((prev)=>({...prev , password: e.target.value})), setFormError((prev)=>({...prev , passwordError: 'Password' , passwordErrorCol: 'text-subText'}))}} className='h-full pl-3 text-second w-full outline-none' placeholder='Create Password' type="password" id="password" />
+                                <div className='flex items-center justify-between h-full w-full px-3'>
+                                    <div className='flex items-center w-full'>
+                                        <MdOutlineLockOpen className='text-2xl text-subText' />
+                                        <input onChange={(e)=>{setFormData((prev)=>({...prev , password: e.target.value})), setFormError((prev)=>({...prev , passwordError: 'Password' , passwordErrorCol: 'text-subText'}))}} className='h-full pl-3 text-second w-full outline-none' placeholder='Create Password' type={`${pass? 'text' : 'password'}`} id="password" autoComplete='new-password' />
+                                    </div>
+                                    {
+                                        pass?
+                                            <FaRegEye onClick={()=>showPass(!pass)} className='text-xl text-subText cursor-pointer' />
+                                            :
+                                            <FaRegEyeSlash onClick={()=>showPass(!pass)} className='text-xl text-subText cursor-pointer' />
+
+                                    }
                                 </div>
                             </fieldset>
                             {/* --------------Confirm Password  */}
                             <fieldset className='w-full h-[70px] pb-3 border-1 border-[#8D918C] rounded-[8px] mt-6'>
                                 <legend className={`${formError.passAgainCol} text-base ml-6 px-2`}>{formError.passAgainError}</legend>
-                                <div className='flex items-center h-full w-full px-3'>
-                                    <MdOutlineLockOpen className='text-2xl text-subText' />
-                                    <input onChange={(e)=>{setFormError((prev)=>({...prev , passAgain: e.target.value , passAgainError: 'Confirm password' , passAgainCol: 'text-subText'}))}} className='h-full pl-3 text-second w-full outline-none' placeholder='Enter password again' type="password" id="password" />
+                                <div className='flex items-center justify-between h-full w-full px-3'>
+                                    <div className='flex items-center w-full'>
+                                        <MdOutlineLockOpen className='text-2xl text-subText' />
+                                        <input onChange={(e)=>{setFormError((prev)=>({...prev , passAgain: e.target.value , passAgainError: 'Confirm password' , passAgainCol: 'text-subText'}))}} className='h-full pl-3 text-second w-full outline-none' placeholder='Enter password again' type={`${pass? 'text' : 'password'}`} id="passwordAgain" autoComplete='new-password' />
+                                    </div>
+                                    {
+                                        pass?
+                                            <FaRegEye onClick={()=>showPass(!pass)} className='text-xl text-subText cursor-pointer' />
+                                            :
+                                            <FaRegEyeSlash onClick={()=>showPass(!pass)} className='text-xl text-subText cursor-pointer' />
+
+                                    }
                                 </div>
                             </fieldset>
                         </div>
@@ -164,7 +181,7 @@ const page = () => {
                         {/* ------------------- Remember me ----------------- */}
                         <div className='mt-6'>
                             <label className="w-full h-[48px] rounded-[4px] cursor-pointer select-none transition flex items-center">
-                                <input id="Option1" name='packaging' type="checkbox" className="peer sr-only" />
+                                <input name='packaging' type="checkbox" className="peer sr-only" />
                                 <span className="relative w-6 h-6 flex justify-center items-center bg-gray-100 border-2 border-gray-400 rounded-[4px] transition-all duration-300 peer-checked:bg-primary peer-checked:border-primary">
                                     <svg className="hidden w-4 h-4 text-white peer-checked:block" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -177,7 +194,7 @@ const page = () => {
                                 </div>
                             </label>
                             <label className="w-full h-[48px] rounded-[4px] cursor-pointer select-none transition flex items-center">
-                                <input id="Option1" name='packaging' type="checkbox" className="peer sr-only" />
+                                <input name='packaging' type="checkbox" className="peer sr-only" />
                                 <span className="relative w-6 h-6 flex justify-center items-center bg-gray-100 border-2 border-gray-400 rounded-[4px] transition-all duration-300 peer-checked:bg-primary peer-checked:border-primary">
                                     <svg className="hidden w-4 h-4 text-white peer-checked:block" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
