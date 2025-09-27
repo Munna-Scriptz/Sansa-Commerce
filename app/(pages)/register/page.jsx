@@ -11,12 +11,21 @@ const page = () => {
     // ----------------------- Hooks 
     const [formData , setFormData] = useState(
         {
-            name: '',
             email: '',
             password: '',
-            role: 'ADMIN'
+            role: 'ADMIN',
+            username: ''
         }
     )
+
+    // ------------------ API Variables
+    const url = 'https://api.freeapi.app/api/v1/users/register';
+    const options = {
+        method: 'POST',
+        headers: {accept: 'application/json', 'content-type': 'application/json'},
+        body: JSON.stringify(formData)
+    }; 
+
     const [formError, setFormError] = useState(
         {
             nameError: 'Name',
@@ -31,17 +40,27 @@ const page = () => {
             roleError: 'ADMIN'
         }
     )
-    console.log(formData)
+
     // ----------------------- Register Handler
-    const handleForm = (e)=>{
+    const handleForm = async (e)=>{
         e.preventDefault()
-        
-        if(!formData.name) return setFormError((prev)=>({...prev , nameError: 'Please enter your username' , nameErrorCol: 'text-red-500'}))
+        // --------------------------- Validation Conditions 
+        if(!formData.username) return setFormError((prev)=>({...prev , nameError: 'Please enter your username' , nameErrorCol: 'text-red-500'}))
         if(!formData.email) return setFormError((prev)=>({...prev , emailError: 'Please enter your email' , emailErrorCol: 'text-red-500'}))
         if(!formData.password) return setFormError((prev)=>({...prev , passwordError: 'Please enter your Password' , passwordErrorCol: 'text-red-500'}))
         if(!formError.passAgain) return setFormError((prev)=>({...prev , passAgainError: 'Please enter your Password' , passAgainCol: 'text-red-500'}))
 
-        console.log('hello')
+        // --------------------------- API FETCH 
+        try {
+            const response = await fetch(url, options);
+            const data = await response.json();
+            console.log(data);
+        } 
+
+        catch (error) {
+            console.error(error);
+        }
+
     }
 
   return (
@@ -68,7 +87,7 @@ const page = () => {
                                 <legend className={`${formError.nameErrorCol} text-base ml-6 px-2`}>{formError.nameError}</legend>
                                 <div className='flex items-center h-full w-full px-3'>
                                     <FaRegUserCircle className='text-[22px] text-subText' />
-                                    <input onChange={(e)=>{setFormData((prev)=>({...prev , name: e.target.value})), setFormError((prev)=>({...prev , nameError: 'Name' , nameErrorCol: 'text-subText'}))}} className='h-full pl-3 text-second w-full outline-none' placeholder='Enter Your Name' type="username" id="username" />
+                                    <input onChange={(e)=>{setFormData((prev)=>({...prev , username: e.target.value})), setFormError((prev)=>({...prev , nameError: 'Name' , nameErrorCol: 'text-subText'}))}} className='h-full pl-3 text-second w-full outline-none' placeholder='Enter Your Name' type="username" id="username" />
                                 </div>
                             </fieldset>
                             {/* --------------Email  */}
