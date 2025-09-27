@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { MdOutlineAlternateEmail, MdOutlineLockOpen } from 'react-icons/md'
 import { FaRegUserCircle } from 'react-icons/fa'
 import Link from 'next/link'
+import { Bounce, toast, ToastContainer } from 'react-toastify'
 
 
 const page = () => {
@@ -55,6 +56,46 @@ const page = () => {
             const response = await fetch(url, options);
             const data = await response.json();
             console.log(data);
+            // ---------------------- Toasters 
+            if(data.message == 'Users registered successfully and verification email has been sent on your email.'){
+                toast.success('Your account has been created !', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    transition: Bounce,
+                })
+            }
+            if(data.message == 'User with email or username already exists'){
+                toast.error('User with email or username already exists', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    transition: Bounce,
+                })
+            }
+            if(data.message == 'Received data is not valid'){
+                toast.warning('Username must be in lowercase letters', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    transition: Bounce,
+                })
+            }
         } 
 
         catch (error) {
@@ -65,6 +106,7 @@ const page = () => {
 
   return (
     <>
+        <ToastContainer />
         <section id='Register' className='mt-6'>
             <div className="container">
                 <div id="Register-Row">
