@@ -42,7 +42,7 @@ const Navbar = () => {
                                 <p>3</p>
                             </div>
                         </Link></li>
-                        <li onClick={()=>handleDelay()}><button onClick={()=>{setValue(!value)}} className='w-[48px] h-[48px] flex items-center justify-center hover:bg-primary hover:text-white rounded-[4px] duration-300'><FaRegCircleUser /></button></li>
+                        <li onClick={()=>handleDelay()}><button onClick={()=>{setValue(!value)}} className='w-[48px] h-[48px] flex items-center justify-center hover:bg-primary hover:text-white rounded-[4px] cursor-pointer duration-300'><FaRegCircleUser /></button></li>
                     </ul>
                 </div>
             </div>
