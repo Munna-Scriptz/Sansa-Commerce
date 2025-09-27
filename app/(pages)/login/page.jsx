@@ -3,17 +3,21 @@ import React, { useState } from 'react'
 import logo from '../../../public/logo.svg'
 import Image from 'next/image'
 import Link from 'next/link'
-import { MdOutlineAlternateEmail, MdOutlineLockOpen } from 'react-icons/md'
-import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
+import { MdOutlineLockOpen } from 'react-icons/md'
+import { FaRegEye, FaRegEyeSlash, FaRegUserCircle } from 'react-icons/fa'
+import { Bounce, toast, ToastContainer } from 'react-toastify'
+import { useRouter } from 'next/navigation'
 
 const page = () => {
+    const router = useRouter();
     // ----------------------- Hooks 
     const [pass , showPass] = useState(false)
+    const [loader , setLoader] = useState(false)
     const [formData , setFormData] = useState(
         {
-            email: '',
-            emailError: 'Email',
-            emailErrCol: 'text-subText',
+            username: '',
+            usernameErr: 'Username',
+            usernameErrCol: 'text-subText',
 
             password: '',
             passError: 'Password',
@@ -21,19 +25,81 @@ const page = () => {
 
         }
     )
+    // ---------------------- API Fetch 
+    const url = 'https://api.freeapi.app/api/v1/users/login';
+    const options = {
+        method: 'POST',
+        headers: {accept: 'application/json', 'content-type': 'application/json'},
+        body: JSON.stringify({username: formData.username , password: formData.password})
+    }
 
     // ------------------ Login Handler 
-    const handleLogin = (e)=>{
+    const handleLogin = async (e)=>{
         e.preventDefault()
 
         // --------------------------- Validation Conditions 
-        if(!formData.email) return setFormData((prev)=>({...prev , emailError: 'Please enter your email' , emailErrCol: 'text-red-500'}))
+        if(!formData.username) return setFormData((prev)=>({...prev , usernameErr: 'Please enter your email' , usernameErrCol: 'text-red-500'}))
         if(!formData.password) return setFormData((prev)=>({...prev , passError: 'Please enter your password' , passErrCol: 'text-red-500'}))
 
-        console.log('Hello World')
+        // --------------------API 
+        try {
+            const response = await fetch(url, options);
+            const data = await response.json();
+            console.log(data);
+            // ------------------------Toast Conditions 
+            if(data.message == 'User does not exist'){
+                toast.error('User does not exist !', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    transition: Bounce,
+                })
+            }
+            if(data.message == 'Invalid user credentials'){
+                toast.warning('Incorrect Password', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    transition: Bounce,
+                })
+            }
+            if(data.message == 'User logged in successfully'){
+                toast.success('Logged into your account', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    transition: Bounce,
+                })
+            }
+            setLoader(true)
+        } 
+        catch (error) {
+            console.error(error);
+        }
+        setTimeout(() => {
+            router.push('/'); 
+            setLoader(false)
+        }, 6000);
     }
   return (
     <>
+        <ToastContainer />
+        <div className={`${loader? '' : 'hidden'} LoaderDiv z-1 fixed top-0 left-0 flex items-center justify-center w-full h-screen bg-[#0000007a]`}><div className="loader"></div></div>
         <section id='Register' className='mt-6'>
             <div className="container">
                 <div id="Register-Row">
@@ -51,15 +117,12 @@ const page = () => {
 
                         {/* ---------------------- Inputs --------------------- */}
                         <div className='mt-[38px] '>
-                            {/* --------------Email  */}
+                            {/* --------------Username  */}
                             <fieldset className='w-full h-[70px] pb-3 border-1 border-[#8D918C] rounded-[8px]'>
-                                <legend className={`${formData.emailErrCol} text-base ml-6 px-2`}>{formData.emailError}</legend>
-                                <div className='flex items-center justify-between h-full w-full px-3'>
-                                    <div className='flex items-center h-full w-full'>
-                                        <MdOutlineAlternateEmail className='text-2xl text-subText' />
-                                        <input onChange={(e)=>{setFormData((prev)=>({...prev , email: e.target.value , emailError: 'Email' , emailErrCol: 'text-subtext'}))}} className='h-full pl-3 text-second w-full outline-none' placeholder='Enter Email' type="email" id="email" autoComplete='email' />
-                                    </div>
-                                    <h2 className='text-subText text-end'>@gmail.com</h2>
+                                <legend className={`${formData.usernameErrCol} text-base ml-6 px-2`}>{formData.usernameErr}</legend>
+                                <div className='flex items-center h-full w-full px-3'>
+                                    <FaRegUserCircle className='text-[22px] text-subText' />
+                                    <input onChange={(e)=>{setFormData((prev)=>({...prev , username: e.target.value , usernameErr: 'Username' , usernameErrCol: 'text-subtext'}))}} className='h-full pl-3 text-second w-full outline-none' placeholder='Enter Your Name' type="username" id="username" autoComplete='username' />
                                 </div>
                             </fieldset>
                             {/* --------------Password  */}

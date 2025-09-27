@@ -13,6 +13,7 @@ const page = () => {
     const router = useRouter();
     // ----------------------- Hooks 
     const [pass , showPass] = useState(false)
+    const [loader , setLoader] = useState(false)
     const [formData , setFormData] = useState(
         {
             email: '',
@@ -21,7 +22,6 @@ const page = () => {
             username: ''
         }
     )
-
 
     // ------------------ API Variables
     const url = 'https://api.freeapi.app/api/v1/users/register';
@@ -99,17 +99,22 @@ const page = () => {
                     transition: Bounce,
                 })
             }
+            setLoader(true)
         } 
 
         catch (error) {
             console.error(error);
         }
-        router.push('/login'); 
+        setTimeout(() => {
+            router.push('/login'); 
+            setLoader(false)
+        }, 4000);
     }
 
   return (
     <>
         <ToastContainer />
+        <div className={`${loader? '' : 'hidden'} LoaderDiv z-1 fixed top-0 left-0 flex items-center justify-center w-full h-screen bg-[#0000007a]`}><div className="loader"></div></div>
         <section id='Register' className='mt-6'>
             <div className="container">
                 <div id="Register-Row">
