@@ -10,7 +10,7 @@ import { RxCross2 } from "react-icons/rx";
 import LoginOrRegis from './LoginOrRegis'
 
 const Navbar = () => {
-    const [value , setValue] = useState(false)
+    const [value , setValue] = useState(true)
   return (
     <>
         <nav className='py-3 bg-brand'>

@@ -1,10 +1,49 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import logo from '../../../public/logo.svg'
 import Image from 'next/image'
 import { MdOutlineAlternateEmail, MdOutlineLockOpen } from 'react-icons/md'
 import { FaRegUserCircle } from 'react-icons/fa'
 import Link from 'next/link'
+
+
 const page = () => {
+    // ----------------------- Hooks 
+    const [formData , setFormData] = useState(
+        {
+            name: '',
+            email: '',
+            password: '',
+            role: 'ADMIN'
+        }
+    )
+    const [formError, setFormError] = useState(
+        {
+            nameError: 'Name',
+            nameErrorCol: 'text-subText',
+            emailError: 'Email',
+            emailErrorCol: 'text-subText',
+            passwordError: 'Password',
+            passwordErrorCol: 'text-subText',
+            passAgain: '',
+            passAgainError: 'Confirm password',
+            passAgainCol: 'text-subText',
+            roleError: 'ADMIN'
+        }
+    )
+    console.log(formData)
+    // ----------------------- Register Handler
+    const handleForm = (e)=>{
+        e.preventDefault()
+        
+        if(!formData.name) return setFormError((prev)=>({...prev , nameError: 'Please enter your username' , nameErrorCol: 'text-red-500'}))
+        if(!formData.email) return setFormError((prev)=>({...prev , emailError: 'Please enter your email' , emailErrorCol: 'text-red-500'}))
+        if(!formData.password) return setFormError((prev)=>({...prev , passwordError: 'Please enter your Password' , passwordErrorCol: 'text-red-500'}))
+        if(!formError.passAgain) return setFormError((prev)=>({...prev , passAgainError: 'Please enter your Password' , passAgainCol: 'text-red-500'}))
+
+        console.log('hello')
+    }
+
   return (
     <>
         <section id='Register' className='mt-6'>
@@ -15,7 +54,7 @@ const page = () => {
                         <Image className='w-[144px]' src={logo} alt='logo'/>
                     </div>
                     {/* -------------------------- logo ------------------   */}
-                    <form className='w-[700px] mt-6 mx-auto border-1 border-[#DADFD8] rounded-[24px] p-[36px]'>
+                    <form onSubmit={handleForm} className='w-[700px] mt-6 mx-auto border-1 border-[#DADFD8] rounded-[24px] p-[36px]'>
                         {/* -------------------Header text------------- */}
                         <div className='mb-8'>
                             <h2 className='text-second text-[28px] text-center leading-[36px] mb-4'>Sign up as our customer</h2>
@@ -24,39 +63,39 @@ const page = () => {
 
                         {/* ---------------------- Inputs --------------------- */}
                         <div className='mt-[38px] '>
-                            {/* --------------Email  */}
+                            {/* --------------Username  */}
                             <fieldset className='w-full h-[70px] pb-3 border-1 border-[#8D918C] rounded-[8px]'>
-                                <legend className='text-subText text-base ml-6 px-2'>Email</legend>
+                                <legend className={`${formError.nameErrorCol} text-base ml-6 px-2`}>{formError.nameError}</legend>
+                                <div className='flex items-center h-full w-full px-3'>
+                                    <FaRegUserCircle className='text-[22px] text-subText' />
+                                    <input onChange={(e)=>{setFormData((prev)=>({...prev , name: e.target.value})), setFormError((prev)=>({...prev , nameError: 'Name' , nameErrorCol: 'text-subText'}))}} className='h-full pl-3 text-second w-full outline-none' placeholder='Enter Your Name' type="username" id="username" />
+                                </div>
+                            </fieldset>
+                            {/* --------------Email  */}
+                            <fieldset className='w-full h-[70px] pb-3 border-1 border-[#8D918C] rounded-[8px] mt-6'>
+                                <legend className={`${formError.emailErrorCol} text-base ml-6 px-2`}>{formError.emailError}</legend>
                                 <div className='flex items-center justify-between h-full w-full px-3'>
                                     <div className='flex items-center h-full w-full'>
                                         <MdOutlineAlternateEmail className='text-2xl text-subText' />
-                                        <input className='h-full pl-3 text-second w-full outline-none' placeholder='Enter Email' type="email" id="email" />
+                                        <input onChange={(e)=>{setFormData((prev)=>({...prev , email: e.target.value})), setFormError((prev)=>({...prev , emailError: 'Email' , emailErrorCol: 'text-subText'}))}} className='h-full pl-3 text-second w-full outline-none' placeholder='Enter Email' type="email" id="email" />
                                     </div>
                                     <h2 className='text-subText text-end'>@gmail.com</h2>
                                 </div>
                             </fieldset>
-                            {/* --------------Username  */}
-                            <fieldset className='w-full h-[70px] pb-3 border-1 border-[#8D918C] rounded-[8px] mt-6'>
-                                <legend className='text-subText text-base ml-6 px-2'>Name</legend>
-                                <div className='flex items-center h-full w-full px-3'>
-                                    <FaRegUserCircle className='text-[22px] text-subText' />
-                                    <input className='h-full pl-3 text-second w-full outline-none' placeholder='Enter Your Name' type="username" id="username" />
-                                </div>
-                            </fieldset>
                             {/* --------------Password  */}
                             <fieldset className='w-full h-[70px] pb-3 border-1 border-[#8D918C] rounded-[8px] mt-6'>
-                                <legend className='text-subText text-base ml-6 px-2'>Password</legend>
+                                <legend className={`${formError.passwordErrorCol} text-base ml-6 px-2`}>{formError.passwordError}</legend>
                                 <div className='flex items-center h-full w-full px-3'>
                                     <MdOutlineLockOpen className='text-2xl text-subText' />
-                                    <input className='h-full pl-3 text-second w-full outline-none' placeholder='Create Password' type="password" id="password" />
+                                    <input onChange={(e)=>{setFormData((prev)=>({...prev , password: e.target.value})), setFormError((prev)=>({...prev , passwordError: 'Password' , passwordErrorCol: 'text-subText'}))}} className='h-full pl-3 text-second w-full outline-none' placeholder='Create Password' type="password" id="password" />
                                 </div>
                             </fieldset>
                             {/* --------------Confirm Password  */}
                             <fieldset className='w-full h-[70px] pb-3 border-1 border-[#8D918C] rounded-[8px] mt-6'>
-                                <legend className='text-subText text-base ml-6 px-2'>Confirm Password</legend>
+                                <legend className={`${formError.passAgainCol} text-base ml-6 px-2`}>{formError.passAgainError}</legend>
                                 <div className='flex items-center h-full w-full px-3'>
                                     <MdOutlineLockOpen className='text-2xl text-subText' />
-                                    <input className='h-full pl-3 text-second w-full outline-none' placeholder='Enter password again' type="password" id="password" />
+                                    <input onChange={(e)=>{setFormError((prev)=>({...prev , passAgain: e.target.value , passAgainError: 'Confirm password' , passAgainCol: 'text-subText'}))}} className='h-full pl-3 text-second w-full outline-none' placeholder='Enter password again' type="password" id="password" />
                                 </div>
                             </fieldset>
                         </div>

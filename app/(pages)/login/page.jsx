@@ -84,7 +84,7 @@ const page = () => {
 
                     {/* ----------------------------- Login ------------------------------------ */}
                     <div className='flex items-center justify-center mt-6'>
-                        <p className='text-[#0A1401] font-medium text-center'>Have not had account yet? <Link className='text-primary' href={'/login'}>Sign Up</Link></p>
+                        <p className='text-[#0A1401] font-medium text-center'>Have not had account yet? <Link className='text-primary' href={'/register'}>Sign Up</Link></p>
                     </div>
                 </div>
             </div>
