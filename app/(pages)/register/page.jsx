@@ -6,10 +6,13 @@ import { MdOutlineAlternateEmail, MdOutlineLockOpen } from 'react-icons/md'
 import { FaRegEye, FaRegEyeSlash, FaRegUserCircle } from 'react-icons/fa'
 import Link from 'next/link'
 import { Bounce, toast, ToastContainer } from 'react-toastify'
+import { useRouter } from 'next/navigation'
 
 
 const page = () => {
+    const router = useRouter();
     // ----------------------- Hooks 
+    const [pass , showPass] = useState(false)
     const [formData , setFormData] = useState(
         {
             email: '',
@@ -18,7 +21,8 @@ const page = () => {
             username: ''
         }
     )
-    const [pass , showPass] = useState(false)
+
+
     // ------------------ API Variables
     const url = 'https://api.freeapi.app/api/v1/users/register';
     const options = {
@@ -100,7 +104,7 @@ const page = () => {
         catch (error) {
             console.error(error);
         }
-
+        router.push('/login'); 
     }
 
   return (
