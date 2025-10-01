@@ -6,10 +6,10 @@ import { MdAddShoppingCart } from 'react-icons/md'
 const SingleDiscount = ({img , proName , ProDetails , proPrice}) => {
   return (
     <>
-        <div className='w-[338px] border-1 border-gray-300 p-6 rounded-[8px] relative'>
+        <div className='md:w-[338px] w-full border-1 border-gray-300 p-6 rounded-[8px] relative'>
             <Image src={img} alt='Image'></Image>
-            <h2 className='text-second text-[26px] mt-6 mb-2'>{proName}</h2>
-            <p className='text-subText text-base'>{ProDetails}</p>
+            <h2 className='text-second md:text-[26px] text-2xl mt-6 mb-2'>{proName}</h2>
+            <p className='text-subText md:text-base text-sm'>{ProDetails}</p>
             {/* ----Price  */}
             <div className='flex items-center justify-between mt-4'>
                 <div className='flex items-center gap-3'>

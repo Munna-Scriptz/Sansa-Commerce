@@ -51,7 +51,7 @@ export const Brands = () => {
   return (
     <>
 
-    <section id='Brands_Slider' className='mt-[82px] mb-6 lg:mt-[88px] lg:mb-[40px] pb-20 lg:px-0'>
+    <section id='Brands_Slider' className='mt-[72px] mb-6 md:mt-[88px] md:mb-[40px] pb-20 md:px-0'>
       <div className="container">
         {/* --------Common Head-------- */}
         <div className='mb-[40px]'></div>

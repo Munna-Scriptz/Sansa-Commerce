@@ -6,13 +6,13 @@ import { FaRegUserCircle } from "react-icons/fa";
 const Touch = () => {
   return (
     <>
-        <section id='Touch' className='mt-[112px]'>
+        <section id='Touch' className='md:mt-[112px] mt-[72px]'>
             <div className="container">
                 <div id="Touch-Row">
                     {/* --------------------Head Text----------------------------- */}
                     <CommonHead text={'Stay In Touch'}/>
                     {/* --------------------Head Text----------------------------- */}
-                    <div className='p-[36px] border-1 border-[#DADFD8] rounded-[24px] mt-[85px] w-[900px] mx-auto'>
+                    <div className='md:p-[36px] p-[16px] border-1 border-[#DADFD8] rounded-[24px] mt-[85px] w-[900px] mx-auto'>
                         <div>
                             <h2 className='text-second text-[28px] font-medium text-center'>Sign up as our customer</h2>
                             <p className='mt-4 text-subText text-center'>Please enter your information</p>

@@ -17,6 +17,39 @@ const Discount = () => {
         slidesToShow: 3,
         speed: 500,
         autoplay: true,
+        responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "0px",
+        }
+      },
+      {
+        breakpoint: 320,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "0px",
+        }
+      }
+    ]
     }
 
     const myPro = [
@@ -43,7 +76,7 @@ const Discount = () => {
                     <CommonHead text={'Discount Products'}/>
 
                     {/* ----------------- Discount Slider ----------------- */}
-                    <div className="slider-container mt-[77px]">
+                    <div className="slider-container md:mt-[77px] mt-10">
                         <Slider {...settings}>
                             {
                                 myPro.map((item , i)=>(
