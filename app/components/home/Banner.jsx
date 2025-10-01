@@ -26,14 +26,16 @@ const Banner = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          infinite: true,
+          dots: true
         }
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 1
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
         }
       },
       {
@@ -48,7 +50,6 @@ const Banner = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          dots: true,
         }
       }
     ]
