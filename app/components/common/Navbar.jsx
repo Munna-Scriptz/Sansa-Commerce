@@ -20,7 +20,7 @@ const Navbar = () => {
     const [value , setValue] = useState(true)
   return (
     <>
-        <nav className='py-3 bg-brand'>
+        <nav className='py-3 bg-brand lg:block hidden'>
             <div className="container">
                 <div id="Navbar-Row" className='flex items-center justify-between'>
                     {/* --------------------Logo  */}
