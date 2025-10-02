@@ -21,6 +21,41 @@ const SpecialOffer = () => {
         slidesToShow: 3,
         speed: 500,
         autoplay: true,
+        responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          centerPadding: "0px",
+          
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "0px",
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "0px",
+        }
+      },
+      {
+        breakpoint: 320,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "0px",
+        }
+      }
+      ]
     }
     
     const myPro = [
@@ -45,7 +80,7 @@ const SpecialOffer = () => {
                     {/* --------------------Header Text--------------------- */}
                     <div className='flex items-center justify-between'>
                         <CommonHead text={'Special Offer:'}/>
-                        <Link className='text-primary text-xl flex items-center gap-2 font-bold' href={'/'}>See More <FaPlus /></Link>
+                        <Link className='text-primary md:text-xl text-sm flex items-center gap-2 font-bold' href={'/'}>See More <FaPlus /></Link>
                     </div>
                     {/* --------------------Product Slider--------------------- */}
                     <div className="slider-container mt-[77px]">
