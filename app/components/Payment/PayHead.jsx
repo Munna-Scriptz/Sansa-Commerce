@@ -8,7 +8,7 @@ const PayHead = () => {
             <section id='Cart-Header'>
               {/* -----------------Bread Crumb------------ */}
                 <div className='container mt-[36px]'>
-                  <div className='font-roboto leading-[24px] font-medium text-lg text-[#B3B7B1] flex items-center gap-1'>
+                  <div className='font-roboto leading-[24px] font-medium md:text-lg text-base text-[#B3B7B1] flex items-center gap-1'>
                     <Link href={'/'}>Home /</Link>
                     <Link href={'/cart'}>Shopping bag /</Link>
                     <Link href={'/shipping'}>Shipping /</Link>

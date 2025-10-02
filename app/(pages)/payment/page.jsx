@@ -10,7 +10,7 @@ const page = () => {
         {/* ----------------------Product And The Summery----------------------- */}
         <main className='mt-[48px]'>
             <div className="container">
-            <div id="Product-Row" className='flex items-start justify-between gap-5'>
+            <div id="Product-Row" className='flex lg:flex-row flex-col items-start justify-between gap-5'>
                 {/* ---------------------- Product ------------------ */}
                 <Methods />
 

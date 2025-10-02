@@ -8,7 +8,7 @@ import { MdLocationCity, MdOutlineAlternateEmail, MdOutlineFolderZip, MdOutlineO
 const ShipDetails = () => {
   return (
     <>
-        <section className='w-[775px] rounded-[24px] bg-[#FBFBFB] p-6'>
+        <section className='lg:w-[775px] w-full rounded-[24px] bg-[#FBFBFB] lg:p-6'>
             {/* ------------------First Row ----------------- */}
             <div>
                 <h2 className='text-[22px] text-second mb-8'>Enter your details</h2>
@@ -174,11 +174,11 @@ const ShipDetails = () => {
             </div>
 
             {/* -----------------------Location  */}
-            <button className={`relative mt-[41px] flex items-center justify-center py-[12px] px-[38px] border-1 border-[#6A6C68] overflow-hidden text-primary group hover:text-white hover:bg-primary group rounded-full cursor-pointer duration-300`}>
+            <button className={`relative mt-[41px] flex items-center justify-center py-[12px] lg:px-[38px] px-[24px] border-1 border-[#6A6C68] overflow-hidden text-primary group hover:text-white hover:bg-primary group rounded-full cursor-pointer duration-300`}>
                 <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-second rounded-full group-hover:w-86 group-hover:h-56"></span>
                 <span className="relative text-[16px] font-roboto font-medium flex items-center gap-2"><IoLocationOutline className='text-xl text-second group-hover:text-primary duration-500' /> Use the address you are on now</span>
             </button>
-            <p className='text-second leading-[24px] mt-[137px]'>We'll contact you in case anything comes up with your order.</p>
+            <p className='text-second leading-[24px] md:mt-[137px] mt-[70px]'>We'll contact you in case anything comes up with your order.</p>
         </section>
     </>
   )
