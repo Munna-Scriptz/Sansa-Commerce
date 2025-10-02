@@ -7,25 +7,25 @@ import { MdDeleteOutline } from 'react-icons/md'
 const CartProduct = () => {
   return (
     <>
-        <div className='w-full rounded-[24px] bg-[#FBFBFB] border-1 border-[#E1E4D5] flex items-center gap-3 relative'>
+        <div className='w-full rounded-[24px] bg-[#FBFBFB] border-1 border-[#E1E4D5] flex items-center gap-3 relative lg:py-4 py-2.5'>
                 {/* ----------------------Image */}
                 <div>
-                  <Image className='w-[140px]' src={proImg} alt='img'></Image>
+                  <Image className='md:w-[140px] w-[90px]' src={proImg} alt='img'></Image>
                 </div>
                 {/* ----------------------Text Details */}
                 <div>
-                  <div className='flex items-center gap-8'>
-                    <h2 className='text-second font-medium text-xl'>White shirt</h2>
-                    <p className='text-second text-[20px]'>9.50 USD</p>
+                  <div className='flex lg:flex-row flex-col lg:items-center lg:gap-8 gap-2'>
+                    <h2 className='text-second font-medium md:text-xl text-base'>White shirt</h2>
+                    <p className='text-second md:text-[20px] text-sm'>9.50 USD</p>
                   </div>
-                  <p className='text-subText mt-2'>Lorem ipsum dolor sit amet.</p>
+                  <p className='text-subText md:text-base text-xs mt-2'>Lorem ipsum dolor sit amet.</p>
                   {/* ---------------Size, qty, color  */}
-                  <div className='flex items-center gap-[40px]'>
+                  <div className='flex lg:flex-row flex-col lg:items-center lg:gap-[40px] gap-2'>
                     {/* -------------Size  */}
-                    <div className='mt-6 flex items-center gap-1'>
-                      <p className='text-sm text-[#484A47]'>Size</p>
+                    <div className='md:mt-6 mt-2 flex items-center gap-1'>
+                      <p className='md:text-sm text-xs text-[#484A47]'>Size</p>
                       <div className='flex items-center gap-3 h-full w-full px-3'>
-                        <select className='w-[61px] px-2 text-subText bg-[#E5E5E5] py-2 cursor-pointer rounded-[4px] font-medium outline-none h-full' name="Lang" id="Select">
+                        <select className='w-[61px] px-2 text-subText bg-[#E5E5E5] md:py-2 py-[2px] cursor-pointer rounded-[4px] font-medium outline-none h-full' name="Lang" id="Select">
                           <option value="L">L</option>
                           <option value="M">M</option>
                           <option value="S">S</option>
@@ -34,17 +34,17 @@ const CartProduct = () => {
                       </div>
                     </div>
                     {/* -------------Quantity  */}
-                    <div className='flex items-center gap-4 mt-[20px]'>
-                      <button className='w-[24px] h-[24px] bg-[#E5E5E5] rounded-full text-[14px] text-center text-second flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white duration-[.3s] select-none'><FaMinus /></button>
+                    <div className='flex items-center md:gap-4 gap-3 md:mt-[20px] mt-2'>
+                      <button className='md:w-[24px] w-[20px] md:h-[24px] h-[20px] bg-[#E5E5E5] rounded-full md:text-[14px] text-xs text-center text-second flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white duration-[.3s] select-none'><FaMinus /></button>
                       <p className='text-base text-Primary font-medium'>1</p>
-                      <button className='w-[24px] h-[24px] bg-[#E5E5E5] rounded-full text-[14px] text-center text-second flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white duration-[.3s] select-none'><FaPlus /></button>
+                      <button className='md:w-[24px] w-[20px] md:h-[24px] h-[20px] bg-[#E5E5E5] rounded-full md:text-[14px] text-xs text-center text-second flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white duration-[.3s] select-none'><FaPlus /></button>
                     </div>
                   </div>
                 </div>
                 {/* -----------Delete  */}
-                <div className='cursor-pointer flex items-center gap-2 absolute top-6 right-6'>
-                  <h2 className='text-sm text-[#BA1A1A] underline'>Remove</h2>
-                  <MdDeleteOutline className='text-[#BA1A1A] text-xl' />
+                <div className='cursor-pointer flex items-center md:gap-2 gap-1 absolute md:top-6 md:right-6 md:bottom-auto bottom-3 right-3.5'>
+                  <h2 className='md:text-sm text-xs text-[#BA1A1A] underline'>Remove</h2>
+                  <MdDeleteOutline className='text-[#BA1A1A] md:text-xl text-base' />
                 </div>
         </div>
     </>

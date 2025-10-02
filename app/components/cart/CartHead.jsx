@@ -7,7 +7,7 @@ const CartHead = () => {
         <main id='Shopping-Bag'>
             <section id='Cart-Header'>
                 <BreadCrumb pageName={'Shopping Bag'}/>
-                <h2 className='container text-second mt-6 text-[28px] leading-[36px]'>Shopping Bag</h2>
+                <h2 className='container text-second mt-6 md:text-[28px] text-2xl leading-[36px]'>Shopping Bag</h2>
             </section>
             {/* --------------------------Buy Progress Bar----------------------------- */}
             <div className="container">

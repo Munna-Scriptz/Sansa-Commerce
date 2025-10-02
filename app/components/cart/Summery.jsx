@@ -10,9 +10,9 @@ import Image from 'next/image'
 const Summery = ({path}) => {
   return (
     <div className='flex flex-col gap-[40px]'>
-        <div className='w-[490px] rounded-[24px] px-[32px] pt-[32px] pb-[118px] bg-[#FBFBFB]'>
+        <div className='lg:w-[490px] w-full rounded-[24px] lg:px-[32px] pt-[32px] lg:pb-[118px] pb-[32px] bg-[#FBFBFB]'>
             <div>
-                <h2 className='text-2xl mb-[32px]'>Summary ( 2 items )</h2>
+                <h2 className='md:text-2xl text-xl mb-[32px]'>Summary ( 2 items )</h2>
                 <div className='flex items-center justify-between'>
                     <p className='text-[#44483D]'>Subtotal</p>
                     <p className='text-second font-medium font-roboto'>16.25 USD</p>
@@ -22,8 +22,8 @@ const Summery = ({path}) => {
                     <p className='text-second font-medium'>FREE</p>
                 </div>
                 <div className='flex items-center justify-between my-10'>
-                    <p className='text-[#44483D] text-[22px]'>Total</p>
-                    <p className='text-second text-2xl font-semibold'>16.25 USD</p>
+                    <p className='text-[#44483D] md:text-[22px] text-xl'>Total</p>
+                    <p className='text-second md:text-2xl text-xl font-semibold'>16.25 USD</p>
                 </div>
                 <a href={path} className={`relative flex items-center justify-center py-[12px] px-[38px] overflow-hidden text-white bg-primary group rounded-full w-full cursor-pointer`}>
                     <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-second rounded-full group-hover:w-86 group-hover:h-56"></span>
@@ -32,8 +32,8 @@ const Summery = ({path}) => {
             </div>
         </div>
         {/* ------------------------Payment Accept----------------- */}
-        <div className='bg-[#FBFBFB] rounded-[24px] w-[490px] py-[38px] pb-[45px] p-[36px]'>
-            <div className='flex items-center gap-5'>
+        <div className='bg-[#FBFBFB] rounded-[24px] lg:w-[490px] w-full py-[38px] md:pb-[45px] lg:p-[36px]'>
+            <div className='flex lg:flex-row flex-col lg:items-center gap-5'>
                 <p className='text-subText '>Payment accepted:</p>
                 <div className='flex items-center gap-1.5'>
                     <Image className='w-[38px]' src={pay1} alt='payment'/>
