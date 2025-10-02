@@ -28,7 +28,7 @@ const FilterProducts = () => {
 
   return (
     <>
-        <section id='Filter-Products' className='py-6 mt-4 select-none w-[300px]'>
+        <section id='Filter-Products' className='md:py-6 py-0 md:mt-4 select-none lg:w-[300px] w-[260px]'>
             <fieldset className='border-r-1 border-[#B3B7B1] relative px-3'>
                 <legend className='text-primary text-3xl absolute top-[50px] right-[-15px] bg-white'><MdKeyboardDoubleArrowLeft /></legend>
                 {/* --------------Head Text--------------- */}

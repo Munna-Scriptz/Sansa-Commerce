@@ -8,9 +8,11 @@ const page = () => {
     <>
       <section id='Search-Page' className='flex items-start gap-[36px]'>
         {/* -------------Contains Filter Functions----------------- */}
-        <FilterProducts />
+        <div className='lg:block hidden'>
+          <FilterProducts />
+        </div>
 
-        {/* -------------Contains Breadcrumb , search text, searchbox, Tabs----------------- */}
+        {/* -------------Contains Breadcrumb , search text, searchbox, Tabs, filter for small devices----------------- */}
         <div className='flex-1'>
           <BreadCrumb pageName={'Search'}/>
           <SearchProducts />
