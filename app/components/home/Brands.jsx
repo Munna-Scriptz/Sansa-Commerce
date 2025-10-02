@@ -12,6 +12,7 @@ export const Brands = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,

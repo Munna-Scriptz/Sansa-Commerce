@@ -12,20 +12,18 @@ import pay3 from '../../../public/payment3.png'
 import pay4 from '../../../public/payment4.png'
 import pay5 from '../../../public/payment5.png'
 import pay6 from '../../../public/payment6.png'
-
-import { MdOutlineAlternateEmail } from 'react-icons/md'
 import { IoLanguage } from 'react-icons/io5'
 
 const Footer = () => {
   return (
     <>
-        <footer className='mt-[112px] bg-[#F3F3F3] pt-[60px]'>
+        <footer className='md:mt-[112px] mt-[72px] bg-[#F3F3F3] pt-[60px]'>
             <div className="container">
-                <div id="Footer-Row" className='flex flex-wrap md:gap-0 gap-15  items-start justify-between'>
+                <div id="Footer-Row" className='flex flex-wrap md:gap-0 gap-10  items-start justify-between'>
                     {/* ---------------------First Row------------------------- */}
                     <div>
-                        <Link href={'/'}><Image className='w-[200px]' src={logo} alt="Logo" /></Link>
-                        <p className='font-dmSans text-subText lg:text-lg mt-6 lg:w-[357px] w-full'>We’re a team of strategic creator and digital innovator, united focus in our pursuit of mastery and joyful.</p>
+                        <Link href={'/'}><Image className='md:w-[200px] w-[160px]' src={logo} alt="Logo" /></Link>
+                        <p className='font-dmSans text-subText md:text-lg mt-6 lg:w-[357px] w-full'>We’re a team of strategic creator and digital innovator, united focus in our pursuit of mastery and joyful.</p>
                         <fieldset className='w-full h-[70px] pb-3 border-1 border-[#8D918C] rounded-[8px] mt-8'>
                             <legend className='text-subText text-base ml-6 px-2'>Language</legend>
                             <div className='flex items-center gap-3 h-full w-full px-3'>
@@ -43,7 +41,7 @@ const Footer = () => {
                     {/* ---------------------Second Row------------------------- */}
                     <div>
                         <h2 className='font-roboto font-semibold text-xl text-second'>Pages</h2>
-                        <ul className='text-base flex flex-col text-subText gap-4 mt-6 opacity-[.8]'>
+                        <ul className='text-base flex flex-col text-subText md:gap-4 gap-2 mt-6 opacity-[.8]'>
                             <li><Link id='HoverLinks' href={'/'}>Home</Link></li>
                             <li><Link id='HoverLinks' href={'/about'}>About</Link></li>
                             <li><Link id='HoverLinks' href={'/contact'}>Contact Us </Link></li>
@@ -54,7 +52,7 @@ const Footer = () => {
                     {/* ---------------------Third Row------------------------- */}
                     <div>
                         <h2 className='font-roboto font-semibold text-xl text-second'>Utility Pages </h2>
-                        <ul className='text-subText text-base flex flex-col gap-4 mt-6 opacity-[.8]'>
+                        <ul className='text-subText text-base flex flex-col md:gap-4 gap-2 md:mt-6 mt-4 opacity-[.8]'>
                             <li><Link id='HoverLinks' href={'/'}>Style Guide </Link></li>
                             <li><Link id='HoverLinks' href={'/'}>Instruction</Link></li>
                             <li><Link id='HoverLinks' href={'/'}>License </Link></li>
@@ -66,7 +64,7 @@ const Footer = () => {
                     {/* ---------------------Fourth Row------------------------- */}
                     <div>
                         <h2 className='font-roboto font-semibold text-xl text-second'>Payment Methods </h2>
-                        <div className='mt-6 grid grid-cols-2 items-start justify-between gap-y-4'>
+                        <div className='md:mt-6 mt-4 grid grid-cols-2 items-start justify-between gap-y-4'>
                             <Link href={'/'}>
                                 <Image src={pay1} alt="Payments methods"/>
                             </Link>
@@ -89,7 +87,7 @@ const Footer = () => {
                     </div>
                 </div>
                 {/* --------------------------Bottom Header------------------------ */}
-                <div id='Footer-Second-row' className='border-t border-borderCol mt-[100px] pt-[30px] pb-[60px] flex flex-wrap md:gap-0 gap-10 items-center justify-between'>
+                <div id='Footer-Second-row' className='border-t border-borderCol md:mt-[100px] mt-[62px] pt-[30px] md:pb-[60px] pb-[30px] flex flex-wrap md:gap-0 gap-6 items-center justify-between'>
                     <div>
                         <h2 className='font-roboto font-semibold md:text-xl text-second'>Copyright by</h2>
                         <div className='font-dmSans md:text-xl text-[#484A47] md:mt-[16px] mt-3'>Developed by <Link className='underline' href={'https://portfolio-munna.vercel.app/'}>Munna-Scriptz</Link></div>

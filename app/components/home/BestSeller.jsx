@@ -18,6 +18,7 @@ const BestSeller = () => {
         slidesToShow: 3,
         speed: 500,
         autoplay: true,
+        arrows: false,
         responsive: [
       {
         breakpoint: 1024,
