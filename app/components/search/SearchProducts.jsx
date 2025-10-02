@@ -53,7 +53,7 @@ const SearchProducts = () => {
   ]
 
   // ------------------------ Filter 
-  const [filter , showFilter] = useState(false)
+  const [filter , showFilter] = useState(true)
   return (
     <>
       <Tabs/>

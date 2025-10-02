@@ -15,7 +15,7 @@ const page = () => {
                 <Methods />
 
                 {/* ---------------------- Summery ------------------ */}
-                <Summery path={'/payment'}/>
+                <Summery path={'/complete'}/>
 
             </div>
             </div>
