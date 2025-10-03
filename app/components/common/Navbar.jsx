@@ -30,8 +30,8 @@ const Navbar = () => {
                         <li><Link className='hover:text-[#8AC732] duration-300' href={'/'}>Home</Link></li>
                         <li><Link className='hover:text-[#8AC732] duration-300' href={'/product'}>Products</Link></li>
                         <li><Link className='hover:text-[#8AC732] duration-300' href={'/'}>Blog</Link></li>
-                        <li><Link className='hover:text-[#8AC732] duration-300' href={'/'}>About Us</Link></li>
-                        <li><Link className='hover:text-[#8AC732] duration-300' href={'/'}>Contact Us</Link></li>
+                        <li><Link className='hover:text-[#8AC732] duration-300' href={'/about'}>About Us</Link></li>
+                        <li><Link className='hover:text-[#8AC732] duration-300' href={'/contact'}>Contact Us</Link></li>
                     </ul>
                     {/* --------------------Nav Icons  */}
                     <ul className='flex items-center text-[23px] text-second font-roboto'>
