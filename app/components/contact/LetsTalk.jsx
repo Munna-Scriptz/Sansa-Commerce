@@ -12,7 +12,7 @@ const LetsTalk = () => {
                     {/* ---------------------------Left Side------------------------------ */}
                     <div className='lg:w-[401px]'>
                         <h2 className='lg:text-[64px] text-[36px] text-primary font-roboto font-semibold'>Let’s talk</h2>
-                        <p className='text-[#0C0C0CE5] text-lg font-dmSans lg:mt-[32px] mt-[24px]'>We collaborate with thousands of creators, entrepreneurs and complete legends.</p>
+                        <p className='text-[#0C0C0CE5] text-lg lg:mt-[32px] mt-[24px]'>We collaborate with thousands of creators, entrepreneurs and complete legends.</p>
                         {/* ------Border */}
                         <div className='w-full h-[1px] bg-[#DFDFDF] my-7.5'></div>
                         {/* ------Border */}
@@ -22,7 +22,7 @@ const LetsTalk = () => {
                             </div>
                             <div>
                                 <h2 className='text-primary text-xl font-roboto font-semibold mb-1'>Our email</h2>
-                                <p className='text-base text-[#0C0C0CE5] font-dmSans'>munnascriptz@gmail.com</p>
+                                <p className='text-base text-[#0C0C0CE5]'>munnascriptz@gmail.com</p>
                             </div>
                         </div>
                         <div className='flex items-center md:gap-[26px] gap-[16px] mt-5'>
@@ -31,7 +31,7 @@ const LetsTalk = () => {
                             </div>
                             <div>
                                 <h2 className='text-primary text-xl font-roboto font-semibold mb-1'>Call us</h2>
-                                <p className='text-base text-[#0C0C0CE5] font-dmSans'>+1234567892</p>
+                                <p className='text-base text-[#0C0C0CE5]'>+880 1908905391</p>
                             </div>
                         </div>
                         <div className='flex items-center md:gap-[26px] gap-[16px] mt-5'>
@@ -40,7 +40,7 @@ const LetsTalk = () => {
                             </div>
                             <div>
                                 <h2 className='text-primary text-xl font-roboto font-semibold mb-1'>Find us</h2>
-                                <p className='text-base text-[#0C0C0CE5] font-dmSans'>Open Google Maps</p>
+                                <p className='text-base text-[#0C0C0CE5]'>Open Google Maps</p>
                             </div>
                         </div>
                         {/* ------Border */}
@@ -63,35 +63,35 @@ const LetsTalk = () => {
                         {/* -------------------------First Row */}
                         <div className='flex lg:flex-nowrap flex-wrap items-center justify-between'>
                             <div className='lg:w-[326px] w-full flex flex-col'>
-                                <label className='text-primary text-lg font-dmSans' htmlFor="name">First name</label>
+                                <label className='text-[#0C0C0CE5] text-lg' htmlFor="name">First name</label>
                                 <input className='border-b-1 border-[#DFDFDF] pt-2 outline-none' id="name" />
                             </div>
                             <div className='lg:w-[326px] w-full flex flex-col lg:mt-0 mt-6'>
-                                <label className='text-primary text-lg font-dmSans' htmlFor="LastName">Last name</label>
+                                <label className='text-[#0C0C0CE5] text-lg' htmlFor="LastName">Last name</label>
                                 <input className='border-b-1 border-[#DFDFDF] pt-2 outline-none' id="LastName" />
                             </div>
                         </div>
                         {/* -------------------------Second Row */}
                         <div className='flex lg:flex-nowrap flex-wrap items-center justify-between lg:mt-[52px] mt-6'>
                             <div className='lg:w-[326px] w-full flex flex-col'>
-                                <label className='text-primary text-lg font-dmSans' htmlFor="email">Email</label>
+                                <label className='text-[#0C0C0CE5] text-lg' htmlFor="email">Email</label>
                                 <input type='email' className='border-b-1 border-[#DFDFDF] pt-2 outline-none' id="email" />
                             </div>
                             <div className='lg:w-[326px] w-full flex flex-col lg:mt-0 mt-6'>
-                                <label className='text-primary text-lg font-dmSans' htmlFor="phone">Phone</label>
+                                <label className='text-[#0C0C0CE5] text-lg' htmlFor="phone">Phone</label>
                                 <input type='number' className='border-b-1 border-[#DFDFDF] pt-2 outline-none' id="phone" />
                             </div>
                         </div>
                         {/* -------------------------Third Row */}
                         <div className='flex lg:flex-nowrap flex-wrap items-center justify-between lg:mt-[52px] mt-6'>
                             <div className='w-full flex flex-col'>
-                                <label className='text-primary text-lg font-dmSans' htmlFor="text">Message</label>
+                                <label className='text-[#0C0C0CE5] text-lg' htmlFor="text">Message</label>
                                 <input type='text' className='border-b-1 border-[#DFDFDF] pt-5 outline-none' id="text" />
                             </div>
                         </div>
                         {/* -----------------------Send Button  */}
                         <div className='mt-[52px]'>
-                            <button className='bg-second text-borderCol font-dmSans text-lg py-[10px] px-[15px] rounded-full cursor-pointer ContactButtonBlack'>Submit Now</button>
+                            <button className='bg-second text-borderCol hover:bg-primary duration-300 hover:scale-[1.1] text-lg py-[10px] px-[15px] rounded-full cursor-pointer ContactButtonBlack'>Submit Now</button>
                         </div>
                     </div>
                 </div>
