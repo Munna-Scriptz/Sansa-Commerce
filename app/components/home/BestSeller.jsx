@@ -4,11 +4,6 @@ import CommonHead from '../common/CommonHead'
 import SingleSeller from '../common/SingleSeller'
 import Slider from 'react-slick'
 
-import img1 from '../../../public/previewImg1.png'
-import img2 from '../../../public/previewImg2.png'
-import img3 from '../../../public/previewImg3.png'
-import img4 from '../../../public/previewImg4.png'
-
 const BestSeller = () => {
   const settings = {
         className: "center",
@@ -58,21 +53,6 @@ const BestSeller = () => {
 
   // ------------------ Switching Tabs -------------------
   const [showTab , setShowTab] = useState('tab1')
-  
-  const myPro = [
-        {
-            img: img1,
-        },
-        {
-            img: img2,
-        },
-        {
-            img: img3,
-        },
-        {
-            img: img4,
-        },
-  ]
 
   // ---------------------- Api -------------------------
   const [product , setProduct] = useState([])
@@ -123,7 +103,7 @@ const BestSeller = () => {
                                 <Slider {...settings}>
                                     {
                                         product.map((item , i)=>(
-                                          <SingleSeller img={item.images[0]} proName={'Warning T-Shirt'} proDetails={'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore, enim?'} proPrice={'8.00 USD'} key={i}/>
+                                          <SingleSeller img={item.images[1]} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
                                         ))
                                     }
                                 </Slider>
@@ -131,7 +111,11 @@ const BestSeller = () => {
                             :
                             <div className="slider-container md:mt-[77px] mt-[40px]">
                                 <Slider {...settings}>
-                                    <SingleSeller img={img3} proName={'Warning T-Shirt'} proDetails={'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore, enim?'} proPrice={'8.00 USD'} />
+                                  {
+                                        product.map((item , i)=>(
+                                          <SingleSeller img={item.images[1]} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
+                                        ))
+                                    }
                                 </Slider>
                             </div>
                     }
