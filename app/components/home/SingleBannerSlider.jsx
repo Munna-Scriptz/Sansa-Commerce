@@ -16,7 +16,7 @@ const SingleBannerSlider = ({image , headerText , subtext}) => {
                             <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-second rounded-full group-hover:w-56 group-hover:h-56"></span>
                             <span className="relative font-roboto font-medium md:text-[16px] text-sm">Shop Now</span>
                         </Link>
-                        <Link href={'/'} className={`relative flex items-center justify-center py-[12px] md:px-[38px] px-[32px] overflow-hidden text-primary bg-transparent border-1 border-subText group rounded-full w-fit`}>
+                        <Link href={'/contact'} className={`relative flex items-center justify-center py-[12px] md:px-[38px] px-[32px] overflow-hidden text-primary bg-transparent border-1 border-subText group rounded-full w-fit`}>
                             <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-second rounded-full group-hover:w-56 group-hover:h-56"></span>
                             <span className="relative md:text-[16px] text-sm font-roboto font-medium">Learn More</span>
                         </Link>

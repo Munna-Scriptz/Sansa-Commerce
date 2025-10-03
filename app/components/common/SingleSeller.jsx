@@ -7,7 +7,7 @@ const SingleSeller = ({img , proName, proDetails, proPrice}) => {
   return (
     <>
         <div className='md:w-[338px] w-full border-1 border-gray-300 p-6 rounded-[8px] relative'>
-            <Image src={img} alt='Image'></Image>
+            <Image width={100} height={150} src={img} alt='Image'></Image>
             <h2 className='text-second md:text-[26px] text-2xl mt-6 mb-2'>{proName}</h2>
             <p className='text-subText md:text-base text-sm'>{proDetails}</p>
             {/* ----Price  */}

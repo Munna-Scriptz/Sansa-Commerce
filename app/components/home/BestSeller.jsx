@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CommonHead from '../common/CommonHead'
 import SingleSeller from '../common/SingleSeller'
 import Slider from 'react-slick'
@@ -10,7 +10,7 @@ import img3 from '../../../public/previewImg3.png'
 import img4 from '../../../public/previewImg4.png'
 
 const BestSeller = () => {
-    const settings = {
+  const settings = {
         className: "center",
         centerMode: true,
         infinite: true,
@@ -54,15 +54,12 @@ const BestSeller = () => {
         }
       }
       ]
-    }
+  }
 
-    // ------------------ Switching Tabs -------------------
-    const [showTab , setShowTab] = useState('tab1')
-    console.log(showTab)
-    
-
-
-    const myPro = [
+  // ------------------ Switching Tabs -------------------
+  const [showTab , setShowTab] = useState('tab1')
+  
+  const myPro = [
         {
             img: img1,
         },
@@ -75,9 +72,29 @@ const BestSeller = () => {
         {
             img: img4,
         },
-    ]
+  ]
 
+  // ---------------------- Api -------------------------
+  const [product , setProduct] = useState([])
+  
+  useEffect(()=>{
 
+    const handleApi = async ()=>{
+
+      const response = await fetch('https://api.escuelajs.co/api/v1/products')
+
+      try{
+        const result = await response.json()
+        setProduct(result)
+      }catch(err){
+        console.log(err)
+      }
+      
+    }
+
+    handleApi()
+  }, [])
+  console.log(product)
   return (
     <>
         <section id='Best-Seller' className='md:mt-[112px] mt-[82px]'>
@@ -105,8 +122,8 @@ const BestSeller = () => {
                             <div className="slider-container md:mt-[77px] mt-[40px]">
                                 <Slider {...settings}>
                                     {
-                                        myPro.map((item , i)=>(
-                                            <SingleSeller img={item.img} proName={'Warning T-Shirt'} proDetails={'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore, enim?'} proPrice={'8.00 USD'} key={i}/>
+                                        product.map((item , i)=>(
+                                          <SingleSeller img={item.images[0]} proName={'Warning T-Shirt'} proDetails={'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore, enim?'} proPrice={'8.00 USD'} key={i}/>
                                         ))
                                     }
                                 </Slider>
