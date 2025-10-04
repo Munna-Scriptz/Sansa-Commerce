@@ -103,7 +103,7 @@ const BestSeller = () => {
                                 <Slider {...settings}>
                                     {
                                         product.map((item , i)=>(
-                                          <SingleSeller img={item.images[1]} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
+                                          <SingleSeller img={item?.images[1]} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
                                         ))
                                     }
                                 </Slider>
