@@ -74,7 +74,6 @@ const BestSeller = () => {
 
     handleApi()
   }, [])
-  console.log(product)
   return (
     <>
         <section id='Best-Seller' className='md:mt-[112px] mt-[82px]'>
@@ -112,7 +111,7 @@ const BestSeller = () => {
                             <div className="slider-container md:mt-[77px] mt-[40px]">
                                 <Slider {...settings}>
                                   {
-                                        product.map((item , i)=>(
+                                        product.slice(0, 20).map((item , i)=>(
                                           <SingleSeller img={item.images[1]} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
                                         ))
                                     }

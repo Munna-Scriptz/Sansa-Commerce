@@ -7,14 +7,14 @@ const SingleDiscount = ({img , proName , ProDetails , proPrice}) => {
   return (
     <>
         <div className='md:w-[338px] w-full border-1 border-gray-300 p-6 rounded-[8px] relative'>
-            <Image src={img} alt='Image'></Image>
-            <h2 className='text-second md:text-[26px] text-2xl mt-6 mb-2'>{proName}</h2>
-            <p className='text-subText md:text-base text-sm'>{ProDetails}</p>
+            <Image className='rounded-t-[8px]' width={338} height={338} src={img} alt='Image'></Image>
+            <h2 className='text-second md:text-[26px] text-2xl mt-6 mb-2 overflow-hidden text-ellipsis whitespace-nowrap w-[300px]'>{proName}</h2>
+            <p className='text-subText md:text-base text-sm line-clamp-2'>{ProDetails}</p>
             {/* ----Price  */}
             <div className='flex items-center justify-between mt-4'>
                 <div className='flex items-center gap-3'>
-                    <h2 className='text-second font-medium text-xl font-inter'>{proPrice}</h2>
-                    <p className='text-[#8D918C] line-through font-medium text-sm font-inter'>8.00 USD</p>
+                    <h2 className='text-second font-medium text-xl font-inter'>{proPrice} USD</h2>
+                    <p className='text-[#8D918C] line-through font-medium text-sm font-inter'>{proPrice} USD</p>
                 </div>
                 <div className='w-[40px] h-[40px] bg-primary text-white rounded-full flex items-center hover:bg-second duration-300 justify-center cursor-pointer text-lg'>
                     <FaPlus />
