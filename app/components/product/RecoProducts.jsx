@@ -1,18 +1,14 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CommonHead from '../common/CommonHead'
 import Link from 'next/link'
 import { FaPlus } from 'react-icons/fa6'
 import Slider from 'react-slick'
-import img1 from '../../../public/previewImg1.png'
-import img2 from '../../../public/previewImg2.png'
-import img3 from '../../../public/previewImg3.png'
-import img4 from '../../../public/previewImg4.png'
 import SingleSeller from '../common/SingleSeller'
 import "slick-carousel/slick/slick.css";
 
 const RecoProducts = () => {
-    const settings = {
+  const settings = {
         className: "center",
         arrows: false,
         centerMode: true,
@@ -56,22 +52,25 @@ const RecoProducts = () => {
         }
       }
       ]
-    }
+  }
     
-    const myPro = [
-        {
-            img: img1,
-        },
-        {
-            img: img2,
-        },
-        {
-            img: img3,
-        },
-        {
-            img: img4,
-        },
-    ]
+  // ------------------- APi product
+  const [product , setProduct] = useState([])
+
+  useEffect(()=>{
+
+    const handleApi = async ()=>{
+      const response = await fetch('https://api.escuelajs.co/api/v1/products')
+
+      try{
+        const result = await response.json()
+        setProduct(result)
+      } catch(err){
+        console.log(err)
+      }
+    }
+    handleApi()
+  }, [])
   return (
     <>
         <section id='Recommended-Products' className='mt-[88px]'>
@@ -86,8 +85,8 @@ const RecoProducts = () => {
                     <div className="slider-container mt-[77px]">
                         <Slider {...settings}>
                             {
-                                myPro.map((item , i)=>(
-                                    <SingleSeller img={item.img} key={i} proName={'Warning T-Shirt'} proDetails={'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore, enim?'} proPrice={'8.00 USD'}/>
+                                product.slice(30,40).map((item , i)=>(
+                                    <SingleSeller img={item?.images[1]} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
                                 ))
                             }
                         </Slider>
