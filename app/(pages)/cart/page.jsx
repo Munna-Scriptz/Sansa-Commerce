@@ -2,18 +2,19 @@
 import CartHead from '@/app/components/cart/CartHead'
 import CartProduct from '@/app/components/cart/CartProduct'
 import Summery from '@/app/components/cart/Summery'
+import { CartReducer } from '@/app/redux/cartSlice'
 import React, { useEffect, useState } from 'react'
 import { LuTags } from "react-icons/lu";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const page = () => {
   const productId = useSelector(state => state.MyRedux.value)
-
+  const dispatch = useDispatch()
   // ---------------------- Api -------------------------
     const [product , setProduct] = useState([])
 
-    const mappedProduct = product.filter((item)=>{
-      if(productId?.includes(item.id)) return item
+    const mappedProduct = product?.filter((item)=>{
+      return productId?.includes(item.id)
     })
     
     useEffect(()=>{
@@ -32,7 +33,17 @@ const page = () => {
       }
   
       handleApi()
-    }, [productId])
+    }, [])
+
+
+
+
+  // ------------------ Handle delete 
+  const handleDlt = (id)=>{
+    const updatedPro = productId.filter(item => item !== id)
+    localStorage.setItem('productId' , JSON.stringify(updatedPro))
+    dispatch(CartReducer(updatedPro))
+  }
   return (
     <>
       <CartHead />
@@ -45,7 +56,7 @@ const page = () => {
               <div className='flex flex-col gap-6'>
                 {
                   mappedProduct.map((item , i)=>(
-                    <CartProduct key={i} image={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} />
+                    <CartProduct key={i} image={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} handleDlt={()=>handleDlt(item.id)} />
                   ))
                 }
               </div>

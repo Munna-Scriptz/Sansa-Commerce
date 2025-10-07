@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { FaMinus, FaPlus } from 'react-icons/fa6'
 import { MdDeleteOutline } from 'react-icons/md'
 
-const CartProduct = ({image , proName , proDetails , proPrice}) => {
+const CartProduct = ({image , proName , proDetails , proPrice  , handleDlt}) => {
   return (
     <>
         <div className='w-full rounded-[24px] bg-[#FBFBFB] border-1 border-[#E1E4D5] flex items-center gap-3 relative lg:py-4 py-2.5'>
@@ -42,7 +42,7 @@ const CartProduct = ({image , proName , proDetails , proPrice}) => {
                   </div>
                 </div>
                 {/* -----------Delete  */}
-                <div className='cursor-pointer flex items-center md:gap-2 gap-1 absolute md:top-6 md:right-6 md:bottom-auto bottom-3 right-3.5'>
+                <div onClick={handleDlt} className='cursor-pointer flex items-center md:gap-2 gap-1 absolute md:top-6 md:right-6 md:bottom-auto bottom-3 right-3.5'>
                   <h2 className='md:text-sm text-xs text-[#BA1A1A] underline'>Remove</h2>
                   <MdDeleteOutline className='text-[#BA1A1A] md:text-xl text-base' />
                 </div>
