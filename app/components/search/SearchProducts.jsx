@@ -1,59 +1,63 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Tabs from '../common/Tabs'
 import CommonHead from '../common/CommonHead'
-import img1 from '../../../public/previewImg1.png'
-import img2 from '../../../public/previewImg2.png'
-import img3 from '../../../public/previewImg3.png'
-import img4 from '../../../public/previewImg4.png'
 import SingleSearchPro from '../common/SingleSearchPro'
 import { IoFilter } from 'react-icons/io5'
-import Link from 'next/link'
 import FilterProducts from './FilterProducts'
+import { useDispatch } from 'react-redux'
+import { CartReducer } from '@/app/redux/cartSlice'
+import { Bounce, toast } from 'react-toastify'
 
 
 const SearchProducts = () => {
-  const myPro = [
-          {
-              img: img1,
-          },
-          {
-              img: img2,
-          },
-          {
-              img: img3,
-          },
-          {
-              img: img4,
-          },
-          {
-              img: img1,
-          },
-          {
-              img: img2,
-          },
-          {
-              img: img3,
-          },
-          {
-              img: img4,
-          },
-          {
-              img: img1,
-          },
-          {
-              img: img2,
-          },
-          {
-              img: img3,
-          },
-          {
-              img: img4,
-          },
-  ]
-
   // ------------------------ Filter 
   const [filter , showFilter] = useState(true)
+
+
+  // ---------------------- Api -------------------------
+    const [product , setProduct] = useState([])
+    
+    useEffect(()=>{
+  
+      const handleApi = async ()=>{
+  
+        const response = await fetch('https://dummyjson.com/products')
+  
+        try{
+          const result = await response.json()
+          setProduct(result.products)
+        }catch(err){
+          console.log(err)
+        }
+        
+      }
+  
+      handleApi()
+    }, [])
+  
+    // --------------------- Handle cart 
+    const dispatch = useDispatch()
+    
+    const handleCart = (id)=>{
+      const myArr = JSON.parse(localStorage.getItem('productId')) || []
+      myArr.push(id)
+      localStorage.setItem('productId' , JSON.stringify(myArr) )
+      dispatch(CartReducer(JSON.parse(localStorage.getItem('productId'))))
+  
+      // ----------------------------- Toaster 
+      toast.success('Product added to your cart!', {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        transition: Bounce,
+      });
+    }
   return (
     <>
       <Tabs/>
@@ -93,8 +97,8 @@ const SearchProducts = () => {
         {/* ---------------------Result Products-------------------- */}
         <div className='mt-[48px] flex items-center flex-wrap justify-between gap-y-[48px]'>
           {
-            myPro.map((item , i)=>(
-              <SingleSearchPro img={item.img} key={i}/>
+            product.map((item , i)=>(
+              <SingleSearchPro cartAdd={()=>handleCart(item.id)} img={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
             ))
           }
         </div>

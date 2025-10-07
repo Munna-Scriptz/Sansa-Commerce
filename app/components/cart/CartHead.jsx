@@ -18,7 +18,7 @@ const CartHead = () => {
                       {/* ------Step 1-------- */}
                       <div className="flex flex-col items-center w-1/3">
                         <div className="w-6 h-6 rounded-full bg-primary border border-[#44483D]"></div>
-                        <span className="mt-2 text-base text-second">Card</span>
+                        <span className="mt-2 text-base text-second">Cart</span>
                       </div>
         
                       {/* --------Step 2-------- */}
