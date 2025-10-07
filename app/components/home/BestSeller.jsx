@@ -5,6 +5,7 @@ import SingleSeller from '../common/SingleSeller'
 import Slider from 'react-slick'
 import { useDispatch } from 'react-redux'
 import { CartReducer } from '@/app/redux/cartSlice'
+import { Bounce, toast } from 'react-toastify'
 
 const BestSeller = () => {
   const settings = {
@@ -84,6 +85,19 @@ const BestSeller = () => {
     myArr.push(id)
     localStorage.setItem('productId' , JSON.stringify(myArr) )
     dispatch(CartReducer(JSON.parse(localStorage.getItem('productId'))))
+
+    // ----------------------------- Toaster 
+    toast.success('Product added to your cart!', {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+    });
   }
   
   
@@ -125,7 +139,7 @@ const BestSeller = () => {
                                 <Slider {...settings}>
                                   {
                                         product.slice(20, 30).map((item , i)=>(
-                                          <SingleSeller img={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
+                                          <SingleSeller cartAdd={()=>handleCart(item.id)} img={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
                                         ))
                                     }
                                 </Slider>

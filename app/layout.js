@@ -5,6 +5,7 @@ import "./globals.css";
 import { Roboto } from "next/font/google";
 import { ProgressBar, ProgressBarProvider } from "react-transition-progress";
 import { StoreProvider } from "./redux/StoreProvider";
+import { ToastContainer } from "react-toastify";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
         <body className={`${roboto.className} `}>
           <ProgressBarProvider >
             <ProgressBar className="fixed z-[999] h-1 shadow-lg shadow-sky-500/20 bg-[#8AC732] top-0" />
+            <ToastContainer />
             <Navbar />
             <ResNavbar />
             {children}

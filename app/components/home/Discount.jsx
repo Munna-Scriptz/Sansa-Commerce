@@ -8,6 +8,9 @@ import img3 from '../../../public/previewImg3.png'
 import img4 from '../../../public/previewImg4.png'
 import Slider from 'react-slick'
 import SingleDiscount from '../common/SingleDiscount'
+import { useDispatch } from 'react-redux'
+import { CartReducer } from '@/app/redux/cartSlice'
+import { Bounce, toast } from 'react-toastify'
 const Discount = () => {
   const settings = {
         className: "center",
@@ -70,6 +73,28 @@ const Discount = () => {
     fetchPro()
   } , [])
   
+  // ---------------------------------- Handle cart 
+  const dispatch = useDispatch()
+
+  const handleCart = (id)=>{
+    const myArr = JSON.parse(localStorage.getItem('productId')) || []
+    myArr.push(id)
+    localStorage.setItem('productId' , JSON.stringify(myArr) )
+    dispatch(CartReducer(JSON.parse(localStorage.getItem('productId'))))
+
+    // ------------------------------- Toaster 
+    toast.success('Product added to your cart!', {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+    });
+  }
   return (
     <>
         <section id='Discount' className='mt-[112px]'>
@@ -83,7 +108,7 @@ const Discount = () => {
                         <Slider {...settings}>
                             {
                                 product.slice(20,40).map((item , i)=>(
-                                    <SingleDiscount key={i} img={item.thumbnail} proName={item.title} ProDetails={item.description} proPrice={item.price}/>
+                                    <SingleDiscount cartAdd={()=>handleCart(item.id)} key={i} img={item.thumbnail} proName={item.title} ProDetails={item.description} proPrice={item.price}/>
                                 ))
                             }
                         </Slider>

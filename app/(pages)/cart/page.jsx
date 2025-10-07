@@ -6,6 +6,7 @@ import { CartReducer } from '@/app/redux/cartSlice'
 import React, { useEffect, useState } from 'react'
 import { LuTags } from "react-icons/lu";
 import { useDispatch, useSelector } from 'react-redux';
+import { Bounce, toast } from 'react-toastify'
 
 const page = () => {
   const productId = useSelector(state => state.MyRedux.value)
@@ -16,7 +17,7 @@ const page = () => {
     const mappedProduct = product?.filter((item)=>{
       return productId?.includes(item.id)
     })
-    
+
     useEffect(()=>{
   
       const handleApi = async ()=>{
@@ -43,6 +44,19 @@ const page = () => {
     const updatedPro = productId.filter(item => item !== id)
     localStorage.setItem('productId' , JSON.stringify(updatedPro))
     dispatch(CartReducer(updatedPro))
+
+    // -------------------------- Toaster 
+    toast.success('Product deleted successfully', {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+    });
   }
   return (
     <>

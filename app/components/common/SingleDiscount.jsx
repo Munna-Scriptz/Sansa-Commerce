@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { FaPlus } from 'react-icons/fa6'
 import { MdAddShoppingCart } from 'react-icons/md'
 
-const SingleDiscount = ({img , proName , ProDetails , proPrice}) => {
+const SingleDiscount = ({img , proName , ProDetails , proPrice  , cartAdd}) => {
   return (
     <>
         <div className='md:w-[338px] w-full border-1 border-gray-300 p-6 rounded-[8px] relative'>
@@ -21,7 +21,7 @@ const SingleDiscount = ({img , proName , ProDetails , proPrice}) => {
                 </div>
             </div>
             {/* -------Add To Cart  */}
-            <div className='addToCart absolute top-[16px] right-[16px] w-[40px] h-[40px] flex items-center justify-center text-second text-2xl bg-[#f1fddf85] cursor-pointer hover:bg-subText hover:text-white rounded-full duration-300'>
+            <div onClick={cartAdd} className='addToCart absolute top-[16px] right-[16px] w-[40px] h-[40px] flex items-center justify-center text-second text-2xl bg-[#f1fddf85] cursor-pointer hover:bg-subText hover:text-white rounded-full duration-300'>
                 <MdAddShoppingCart />
                 <span className="tooltip">Add To Cart</span>
             </div>

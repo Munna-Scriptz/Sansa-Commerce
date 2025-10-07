@@ -31,7 +31,7 @@ const Navbar = () => {
       dispatch(CartReducer(JSON.parse(data)))
     }
   }, [dispatch])
-    console.log(productNum.length)
+  
   return (
     <>
         <nav className='py-3 bg-brand lg:block hidden'>

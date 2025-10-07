@@ -6,6 +6,9 @@ import { FaPlus } from 'react-icons/fa6'
 import Slider from 'react-slick'
 import SingleSeller from '../common/SingleSeller'
 import "slick-carousel/slick/slick.css";
+import { useDispatch } from 'react-redux'
+import { CartReducer } from '@/app/redux/cartSlice'
+import { Bounce, toast } from 'react-toastify'
 
 const RecoProducts = () => {
   const settings = {
@@ -71,6 +74,30 @@ const RecoProducts = () => {
     }
     handleApi()
   }, [])
+
+  // ---------------------------------- Handle cart 
+  const dispatch = useDispatch()
+
+  const handleCart = (id)=>{
+    const myArr = JSON.parse(localStorage.getItem('productId')) || []
+    myArr.push(id)
+    localStorage.setItem('productId' , JSON.stringify(myArr) )
+    dispatch(CartReducer(JSON.parse(localStorage.getItem('productId'))))
+
+    // ------------------------------- Toaster 
+    toast.success('Product added to your cart!', {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+    });
+  }
+
   return (
     <>
         <section id='Recommended-Products' className='mt-[88px]'>
@@ -86,7 +113,7 @@ const RecoProducts = () => {
                         <Slider {...settings}>
                             {
                                 product.slice(20,30).map((item , i)=>(
-                                    <SingleSeller img={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
+                                    <SingleSeller cartAdd={()=>handleCart(item.id)} img={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
                                 ))
                             }
                         </Slider>
