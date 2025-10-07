@@ -61,11 +61,11 @@ const BestSeller = () => {
 
     const handleApi = async ()=>{
 
-      const response = await fetch('https://api.escuelajs.co/api/v1/products')
+      const response = await fetch('https://dummyjson.com/products')
 
       try{
         const result = await response.json()
-        setProduct(result)
+        setProduct(result.products)
       }catch(err){
         console.log(err)
       }
@@ -74,6 +74,16 @@ const BestSeller = () => {
 
     handleApi()
   }, [])
+
+  // --------------------- Handle cart 
+
+  const handleCart = (id)=>{
+    const myArr = JSON.parse(localStorage.getItem('productId')) || []
+    myArr.push(id)
+    localStorage.setItem('productId' , JSON.stringify(myArr) )
+  }
+  
+  
   return (
     <>
         <section id='Best-Seller' className='md:mt-[112px] mt-[82px]'>
@@ -101,8 +111,8 @@ const BestSeller = () => {
                             <div className="slider-container md:mt-[77px] mt-[40px]">
                                 <Slider {...settings}>
                                     {
-                                        product.map((item , i)=>(
-                                          <SingleSeller img={item?.images[1]} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
+                                        product.slice(0,20).map((item , i)=>(
+                                          <SingleSeller cartAdd={()=>handleCart(item.id)} img={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
                                         ))
                                     }
                                 </Slider>
@@ -111,8 +121,8 @@ const BestSeller = () => {
                             <div className="slider-container md:mt-[77px] mt-[40px]">
                                 <Slider {...settings}>
                                   {
-                                        product.slice(0, 20).map((item , i)=>(
-                                          <SingleSeller img={item.images[1]} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
+                                        product.slice(20, 30).map((item , i)=>(
+                                          <SingleSeller img={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
                                         ))
                                     }
                                 </Slider>

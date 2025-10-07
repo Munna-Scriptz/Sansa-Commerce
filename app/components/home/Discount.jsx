@@ -83,7 +83,7 @@ const Discount = () => {
                     <div className="slider-container md:mt-[77px] mt-10">
                         <Slider {...settings}>
                             {
-                                product.map((item , i)=>(
+                                product.slice(20,40).map((item , i)=>(
                                     <SingleDiscount key={i} img={item.thumbnail} proName={item.title} ProDetails={item.description} proPrice={item.price}/>
                                 ))
                             }
