@@ -60,11 +60,11 @@ const NewProducts = () => {
   useEffect(()=>{
 
     const handleApi = async ()=>{
-      const response = await fetch('https://api.escuelajs.co/api/v1/products')
+      const response = await fetch('https://dummyjson.com/products')
 
       try{
         const result = await response.json()
-        setProduct(result)
+        setProduct(result.products)
       } catch(err){
         console.log(err)
       }
@@ -85,8 +85,8 @@ const NewProducts = () => {
                     <div className="slider-container mt-[77px]">
                         <Slider {...settings}>
                             {
-                                product.slice(20,30).map((item , i)=>(
-                                    <SingleSeller img={item?.images[1]} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
+                                product.slice(10,20).map((item , i)=>(
+                                    <SingleSeller img={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
                                 ))
                             }
                         </Slider>
