@@ -1,5 +1,5 @@
 'use client'
-import React, { useState , startTransition } from 'react'
+import React, { useState , startTransition, useEffect } from 'react'
 import Logo from '../../../public/logo.svg'
 import { FaBarsStaggered } from 'react-icons/fa6';
 import Link from 'next/link';
@@ -7,6 +7,8 @@ import Image from 'next/image';
 import { useProgress } from "react-transition-progress";
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import { IoSearch } from 'react-icons/io5';
+import { useDispatch } from 'react-redux';
+import { CartReducer } from '@/app/redux/cartSlice';
 
 const ResNavbar = () => {
     const [Value , SetValue] = useState(true)
@@ -17,6 +19,14 @@ const ResNavbar = () => {
                 await new Promise((resolve) => setTimeout(resolve, 2000)); 
             });
     }
+    // ------------------------- Initialized cart products 
+    const dispatch = useDispatch()
+    useEffect(() => {
+        const data = localStorage.getItem("productId")
+        if (data) {
+          dispatch(CartReducer(JSON.parse(data)))
+        }
+    }, [dispatch])
   return (
     <>
     <nav className='lg:hidden block z-50 py-[16px]'>

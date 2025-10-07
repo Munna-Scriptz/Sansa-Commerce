@@ -13,10 +13,8 @@ const page = () => {
     const [product , setProduct] = useState([])
 
     const mappedProduct = product.filter((item)=>{
-      return productId?.includes(item.id)
+      if(productId?.includes(item.id)) return item
     })
-    
-
     
     useEffect(()=>{
   
@@ -34,7 +32,7 @@ const page = () => {
       }
   
       handleApi()
-    }, [])
+    }, [productId])
   return (
     <>
       <CartHead />
@@ -47,7 +45,7 @@ const page = () => {
               <div className='flex flex-col gap-6'>
                 {
                   mappedProduct.map((item , i)=>(
-                    <CartProduct />
+                    <CartProduct key={i} image={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} />
                   ))
                 }
               </div>

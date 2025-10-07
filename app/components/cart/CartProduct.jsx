@@ -4,21 +4,21 @@ import Image from 'next/image'
 import { FaMinus, FaPlus } from 'react-icons/fa6'
 import { MdDeleteOutline } from 'react-icons/md'
 
-const CartProduct = () => {
+const CartProduct = ({image , proName , proDetails , proPrice}) => {
   return (
     <>
         <div className='w-full rounded-[24px] bg-[#FBFBFB] border-1 border-[#E1E4D5] flex items-center gap-3 relative lg:py-4 py-2.5'>
                 {/* ----------------------Image */}
                 <div>
-                  <Image className='md:w-[140px] w-[90px]' src={proImg} alt='img'></Image>
+                  <Image width={110} height={60} src={image} alt='img'></Image>
                 </div>
                 {/* ----------------------Text Details */}
                 <div>
                   <div className='flex lg:flex-row flex-col lg:items-center lg:gap-8 gap-2'>
-                    <h2 className='text-second font-medium md:text-xl text-base'>White shirt</h2>
-                    <p className='text-second md:text-[20px] text-sm'>9.50 USD</p>
+                    <h2 className='text-second font-medium md:text-xl text-base w-[250px] overflow-hidden text-ellipsis whitespace-nowrap'>{proName}</h2>
+                    <p className='text-second md:text-[20px] text-sm'>{proPrice} USD</p>
                   </div>
-                  <p className='text-subText md:text-base text-xs mt-2'>Lorem ipsum dolor sit amet.</p>
+                  <p className='text-subText md:text-base text-xs mt-2 w-[300px] overflow-hidden text-ellipsis whitespace-nowrap'>{proDetails}</p>
                   {/* ---------------Size, qty, color  */}
                   <div className='flex lg:flex-row flex-col lg:items-center lg:gap-[40px] gap-2'>
                     {/* -------------Size  */}

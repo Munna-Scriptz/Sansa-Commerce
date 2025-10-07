@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import React, { useState , startTransition  } from 'react'
+import React, { useState , startTransition, useEffect  } from 'react'
 import logo from '../../../public/logo.svg'
 import Image from 'next/image'
 import { IoSearch } from "react-icons/io5";
@@ -9,6 +9,8 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import LoginOrRegis from './LoginOrRegis'
 import { useProgress } from "react-transition-progress";
+import { useDispatch, useSelector } from 'react-redux'
+import { CartReducer } from '@/app/redux/cartSlice'
 const Navbar = () => {
     const startProgress = useProgress();
     const handleDelay = async ()=>{
@@ -18,6 +20,18 @@ const Navbar = () => {
         });
     }
     const [value , setValue] = useState(true)
+
+    // ------------------ Initialized cart products 
+    const dispatch = useDispatch()
+    const productNum = useSelector((state)=>state.MyRedux.value)
+
+    useEffect(() => {
+    const data = localStorage.getItem("productId")
+    if (data) {
+      dispatch(CartReducer(JSON.parse(data)))
+    }
+  }, [dispatch])
+    console.log(productNum.length)
   return (
     <>
         <nav className='py-3 bg-brand lg:block hidden'>
@@ -39,7 +53,7 @@ const Navbar = () => {
                         <li onClick={()=>handleDelay()}><Link className='w-[48px] h-[48px] relative flex items-center justify-center hover:bg-primary hover:text-white rounded-[4px] duration-300' href={'/cart'}>
                             <MdOutlineShoppingCart />
                             <div className='w-[16px] h-[16px] absolute top-1.5 right-1.5 bg-[#BA1A1A] rounded-full flex items-center justify-center text-white font-medium text-[11px] leading-[16px]'>
-                                <p>3</p>
+                                <p>{productNum?.length}</p>
                             </div>
                         </Link></li>
                         <li onClick={()=>handleDelay()}><button onClick={()=>{setValue(!value)}} className='w-[48px] h-[48px] flex items-center justify-center hover:bg-primary hover:text-white rounded-[4px] cursor-pointer duration-300'><FaRegCircleUser /></button></li>

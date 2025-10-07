@@ -78,7 +78,6 @@ const BestSeller = () => {
 
   // --------------------- Handle cart 
   const dispatch = useDispatch()
-  dispatch(CartReducer(JSON.parse(localStorage.getItem('productId'))))
   
   const handleCart = (id)=>{
     const myArr = JSON.parse(localStorage.getItem('productId')) || []
