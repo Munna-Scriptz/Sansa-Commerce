@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import CommonHead from '../common/CommonHead'
 import SingleSeller from '../common/SingleSeller'
 import Slider from 'react-slick'
+import { useDispatch } from 'react-redux'
+import { CartReducer } from '@/app/redux/cartSlice'
 
 const BestSeller = () => {
   const settings = {
@@ -50,7 +52,6 @@ const BestSeller = () => {
       }
       ]
   }
-
   // ------------------ Switching Tabs -------------------
   const [showTab , setShowTab] = useState('tab1')
 
@@ -76,11 +77,14 @@ const BestSeller = () => {
   }, [])
 
   // --------------------- Handle cart 
-
+  const dispatch = useDispatch()
+  dispatch(CartReducer(JSON.parse(localStorage.getItem('productId'))))
+  
   const handleCart = (id)=>{
     const myArr = JSON.parse(localStorage.getItem('productId')) || []
     myArr.push(id)
     localStorage.setItem('productId' , JSON.stringify(myArr) )
+    dispatch(CartReducer(JSON.parse(localStorage.getItem('productId'))))
   }
   
   

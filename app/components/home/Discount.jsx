@@ -69,8 +69,7 @@ const Discount = () => {
     
     fetchPro()
   } , [])
-
-  console.log(product)
+  
   return (
     <>
         <section id='Discount' className='mt-[112px]'>
