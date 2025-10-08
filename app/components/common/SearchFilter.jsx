@@ -35,12 +35,18 @@ const SearchFilter = ({searchHook , searchSetHook}) => {
 
     const handleSearch = ()=>{
         const categoryList = product.filter((items)=> items.name.toLowerCase().includes(value.toLocaleLowerCase()))
-        setSearchPro(categoryList)
+        if(value == ''){
+            setSearchPro([])
+        }
+        else{
+            setSearchPro(categoryList)
+        }
     }
 
+    // ------------------------------ Handle Navigation
   return (
     <>
-        <section className={`${searchHook? 'top-20' : '-top-40 '} absolute duration-500 right-10 bg-brand pt-[20px] pb-[10px] z-10 rounded-[12px]`}>
+        <section className={`${searchHook? 'top-20' : '-top-160 '} absolute duration-900 right-10 bg-brand pt-[20px] pb-[10px] z-10 rounded-[12px]`}>
             <form className='px-[32px]'>
                 <fieldset className='md:w-[370px] w-full h-[64px] pb-3 border-1 border-[#8D918C] rounded-[8px]'>
                     <legend className='text-subText text-base ml-6 px-2'>Search</legend>
@@ -57,7 +63,7 @@ const SearchFilter = ({searchHook , searchSetHook}) => {
             </form>
 
             {/* -------------- APi categories  */}
-            <div className={`${value == ''? 'h-auto' : 'h-[480px]'} mt-6  overflow-scroll overflow-x-hidden`}>
+            <div className={`${searchPro.length == 0? 'h-auto' : 'h-[480px]'} mt-6 overflow-scroll overflow-x-hidden`}>
                 {
                     searchPro.map((item , i)=>(
                         <div key={i} className='px-[24px] py-[12px] border-b-1 cursor-pointer border-gray-300 flex items-center justify-between bg-[#e1ffb3] hover:bg-[#caff7a] duration-300 '>
