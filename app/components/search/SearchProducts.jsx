@@ -18,8 +18,6 @@ const SearchProducts = () => {
   const searchParams = useSearchParams();
   const category = searchParams.get("category");
 
-  console.log(category)
-
   // ---------------------- Api -------------------------
     const [product , setProduct] = useState([])
     
@@ -39,7 +37,7 @@ const SearchProducts = () => {
       }
   
       handleApi()
-    }, [category])
+    }, [searchParams])
   
     // --------------------- Handle cart 
     const dispatch = useDispatch()
