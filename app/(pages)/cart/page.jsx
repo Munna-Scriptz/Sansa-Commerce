@@ -19,12 +19,12 @@ const page = () => {
     const mappedProduct = product?.filter((item)=>{
       return productId?.includes(item.id)
     })
-
+    console.log(product)
     useEffect(()=>{
   
       const handleApi = async ()=>{
   
-        const response = await fetch( `https://dummyjson.com/products/${mappedProduct}`)
+        const response = await fetch(`https://dummyjson.com/products?limit=0`)
   
         try{
           const result = await response.json()
