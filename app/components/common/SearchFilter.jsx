@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { IoArrowRedoOutline, IoSearch } from 'react-icons/io5'
 import { CgArrowTopLeft } from "react-icons/cg";
+import { useRouter } from 'next/navigation';
 
 
 const SearchFilter = ({searchHook , searchSetHook}) => {
@@ -25,7 +26,7 @@ const SearchFilter = ({searchHook , searchSetHook}) => {
         }
         
       }
-
+      
       handleApi()
     }, [])
     
@@ -44,6 +45,11 @@ const SearchFilter = ({searchHook , searchSetHook}) => {
     }
 
     // ------------------------------ Handle Navigation
+    const router = useRouter()
+
+    const handleNav = (e)=>{
+        router.push(`/search?category=${e.url}`)
+    }
   return (
     <>
         <section className={`${searchHook? 'top-20' : '-top-160 '} absolute duration-900 right-10 bg-brand pt-[20px] pb-[10px] z-10 rounded-[12px]`}>
@@ -66,7 +72,7 @@ const SearchFilter = ({searchHook , searchSetHook}) => {
             <div className={`${searchPro.length == 0? 'h-auto' : 'h-[480px]'} mt-6 overflow-scroll overflow-x-hidden`}>
                 {
                     searchPro.map((item , i)=>(
-                        <div key={i} className='px-[24px] py-[12px] border-b-1 cursor-pointer border-gray-300 flex items-center justify-between bg-[#e1ffb3] hover:bg-[#caff7a] duration-300 '>
+                        <div key={i} onClick={()=>{handleNav(item) , searchSetHook() , setValue('')}} className='px-[24px] py-[12px] border-b-1 cursor-pointer border-gray-300 flex items-center justify-between bg-[#e1ffb3] hover:bg-[#caff7a] duration-300 '>
                             <h2 className='text-second text-lg font-medium'>{item.name}</h2>
                             <CgArrowTopLeft className='text-2xl'/>
                         </div>

@@ -6,9 +6,9 @@ import { MdAddShoppingCart } from 'react-icons/md'
 const SingleSearchPro = ({img , proName, proDetails, proPrice , cartAdd}) => {
   return (
     <>
-        <div className='md:w-[308px] lg:w-[310px] border-1 border-gray-300 p-6 rounded-[8px] relative'>
+        <div className='md:w-[308px] lg:w-[310px] border-1 border-gray-300 p-4 rounded-[8px] relative'>
             <Image width={338} height={338} src={img || proImg} alt='Image'></Image>
-            <h2 className='text-second text-[24px] mt-6 mb-2 overflow-hidden text-ellipsis whitespace-nowrap w-[300px]'>{proName}</h2>
+            <h2 className='text-second text-[24px] mt-6 mb-2 overflow-hidden text-ellipsis whitespace-nowrap w-[270px]'>{proName}</h2>
             <p className='text-subText text-sm line-clamp-2'>{proDetails}</p>
             {/* ----Price  */}
             <div className='flex items-center justify-between mt-4'>

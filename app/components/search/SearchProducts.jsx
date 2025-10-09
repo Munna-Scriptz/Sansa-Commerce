@@ -8,12 +8,17 @@ import FilterProducts from './FilterProducts'
 import { useDispatch } from 'react-redux'
 import { CartReducer } from '@/app/redux/cartSlice'
 import { Bounce, toast } from 'react-toastify'
+import { useSearchParams } from 'next/navigation'
 
 
 const SearchProducts = () => {
   // ------------------------ Filter 
   const [filter , showFilter] = useState(true)
+  
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category");
 
+  console.log(category)
 
   // ---------------------- Api -------------------------
     const [product , setProduct] = useState([])
@@ -22,7 +27,7 @@ const SearchProducts = () => {
   
       const handleApi = async ()=>{
   
-        const response = await fetch('https://dummyjson.com/products')
+        const response = await fetch(`${category}`)
   
         try{
           const result = await response.json()
@@ -34,7 +39,7 @@ const SearchProducts = () => {
       }
   
       handleApi()
-    }, [])
+    }, [category])
   
     // --------------------- Handle cart 
     const dispatch = useDispatch()

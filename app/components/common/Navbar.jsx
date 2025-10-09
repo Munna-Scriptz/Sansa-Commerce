@@ -36,7 +36,7 @@ const Navbar = () => {
   
 
     //   ------------------------ Handle search 
-    const [search , setSearch] = useState(true)
+    const [search , setSearch] = useState(false)
 
     
     
@@ -71,7 +71,7 @@ const Navbar = () => {
         </nav>
 
         {/* -----Search----- */}
-        <SearchFilter searchHook={search} />
+        <SearchFilter searchHook={search} searchSetHook={()=>setSearch(!search)} />
 
         {/* -----Account----- */}
       <section className={`w-full h-full backdrop-blur-md bg-[#00000063] z-50 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] duration-[.3s] flex items-center justify-center gap-7 ${value? 'hidden opacity-0 duration-75' : 'block opacity-100'}`}>
