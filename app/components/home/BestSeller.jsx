@@ -107,19 +107,18 @@ const BestSeller = () => {
     const [loader , setLoader] = useState(false)
 
     const handleNav = (e)=>{
-      console.log('hello world')
         setLoader(true)
         setTimeout(() => {
-          router.push(`/details?category=${e.url}`)
+          router.push(`/details?productId=${e.id}`)
           setLoader(false)
         }, 1500);
     }
 
   return (
     <>
-    {
-      loader && <Loading />
-    }
+      {
+        loader && <Loading />
+      }
         <section id='Best-Seller' className='md:mt-[112px] mt-[82px]'>
             <div className="container">
                 <div id="Best-Seller-Row">

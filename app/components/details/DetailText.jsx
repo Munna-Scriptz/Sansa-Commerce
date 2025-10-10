@@ -1,16 +1,16 @@
 import React from 'react'
 import { GoShareAndroid } from "react-icons/go";
 
-const DetailText = () => {
+const DetailText = ({title , description , rating , price , totalReview , code}) => {
   return (
     <>
         <div className="w-[440px] flex flex-col flex-1">
                 {/* -----------------------Title------------------- */}
                 <h2 className="text-[32px] font-medium text-[#101110]">
-                    Shirt mockup concept with plain clothing
+                    {title}
                 </h2>
                 <p className="text-[#484A47] mt-[18px]">
-                    This shirt is made in Thailand in a company called ANM
+                    {description}
                 </p>
 
                 {/* ---------------------Rating-------------------- */}
@@ -20,12 +20,12 @@ const DetailText = () => {
                         <span key={i}>★</span>
                     ))}
                     </div>
-                    <p className="text-[#484A47] text-sm">(5.0)</p>
-                    <a href="#" className="text-primary text-sm underline ml-1">560 reviews</a>
+                    <p className="text-[#484A47] text-sm">({rating})</p>
+                    <a href="#" className="text-primary text-sm underline ml-1">{totalReview} reviews</a>
                 </div>
 
                 {/* ---------------------- Price--------------------- */}
-                <p className="text-[36px] text-[#101110] mt-4">9.50 USD</p>
+                <p className="text-[36px] text-[#101110] mt-4">{price} USD</p>
 
                 {/* ---------------------------Options-------------------- */}
                 <p className="text-[#484A47] mb-3 mt-[28px]">Product options:</p>
@@ -73,7 +73,7 @@ const DetailText = () => {
 
                 {/* ------------------Product Id + Share */}
                 <div className="flex items-center gap-6 mt-6">
-                    <p className="text-[#484A47]">Product id:1230-rnhj</p>
+                    <p className="text-[#484A47]">Product id: {code}</p>
                     <button className="text-second border-1 border-[#6A6C68] p-2 rounded-full flex items-center justify-center text-2xl cursor-pointer">
                         <GoShareAndroid />
                     </button>
