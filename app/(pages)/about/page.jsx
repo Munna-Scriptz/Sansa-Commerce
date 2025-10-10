@@ -2,9 +2,10 @@ import React from 'react'
 import Image from 'next/image';
 import img1 from '../../../public/whoAreWe.jpg'
 import img2 from '../../../public/ourVision.jpg'
+import Link from 'next/link';
 const page = () => {
   return (
-    <main>
+    <main id='About-Us-Page'>
         <div className="container">
             <div className="min-h-screen flex flex-col">
             {/* Hero */}
@@ -90,9 +91,9 @@ const page = () => {
                         community and experience shopping like never before. Together, 
                         let’s build a future of innovation, sustainability, and trust.
                     </p>
-                    <button className="py-3 rounded-xl bg-primary px-6 cursor-pointer text-white font-semibold hover:opacity-90 transition">
+                    <Link href={'/contact'} className="py-3 rounded-xl bg-primary px-6 cursor-pointer text-white font-semibold hover:opacity-90 transition">
                         Get Started
-                    </button>
+                    </Link>
                     </div>
                 </div>
             </section>
