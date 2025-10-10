@@ -3,7 +3,11 @@ import Image from 'next/image'
 import { FaPlus } from 'react-icons/fa6'
 import { MdAddShoppingCart } from 'react-icons/md'
 import proImg from '../../../public/previewImg1.png'
-const SingleSeller = ({img , proName, proDetails, proPrice , cartAdd}) => {
+import { LuScanEye } from 'react-icons/lu'
+const SingleSeller = ({img , proName, proDetails, proPrice , cartAdd , navigate}) => {
+
+
+
   return (
     <>
         <div className='md:w-[338px] w-full border-1 border-gray-300 rounded-[8px] pb-6 relative'>
@@ -18,9 +22,15 @@ const SingleSeller = ({img , proName, proDetails, proPrice , cartAdd}) => {
                 </div>
             </div>
             {/* -------Add To Cart  */}
-            <div onClick={cartAdd} className='addToCart absolute md:top-[16px] top-[20px] md:right-[16px] right-[20px] w-[40px] h-[40px] flex items-center justify-center text-second text-2xl cursor-pointer bg-[#f1fddf85] hover:bg-subText hover:text-white rounded-full duration-300'>
-                <MdAddShoppingCart />
-                <span className="tooltip">Add To Cart</span>
+            <div>
+                <div onClick={cartAdd} className='addToCart absolute md:top-[16px] top-[20px] md:right-[16px] right-[20px] w-[40px] h-[40px] flex items-center justify-center text-second text-2xl cursor-pointer bg-[#f1fddf85] hover:bg-subText hover:text-white rounded-full duration-300'>
+                    <MdAddShoppingCart />
+                    <span className="tooltip z-50">Add To Cart</span>
+                </div>
+                <div onClick={navigate} className='addToCart absolute md:top-[66px] top-[20px] md:right-[16px] right-[20px] w-[40px] h-[40px] flex items-center justify-center text-second text-2xl cursor-pointer bg-[#f1fddf85] hover:bg-subText hover:text-white rounded-full duration-300'>
+                    <LuScanEye />
+                    <span className="tooltip">View item</span>
+                </div>
             </div>
         </div>
     </>

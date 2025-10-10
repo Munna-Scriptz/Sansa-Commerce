@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { FaPlus } from 'react-icons/fa6'
 import { MdAddShoppingCart } from 'react-icons/md'
+import { LuScanEye } from 'react-icons/lu'
 
 const SingleDiscount = ({img , proName , ProDetails , proPrice  , cartAdd}) => {
   return (
@@ -21,9 +22,15 @@ const SingleDiscount = ({img , proName , ProDetails , proPrice  , cartAdd}) => {
                 </div>
             </div>
             {/* -------Add To Cart  */}
-            <div onClick={cartAdd} className='addToCart absolute top-[16px] right-[16px] w-[40px] h-[40px] flex items-center justify-center text-second text-2xl bg-[#f1fddf85] cursor-pointer hover:bg-subText hover:text-white rounded-full duration-300'>
-                <MdAddShoppingCart />
-                <span className="tooltip">Add To Cart</span>
+            <div>
+                <div onClick={cartAdd} className='addToCart absolute md:top-[16px] top-[20px] md:right-[16px] right-[20px] w-[40px] h-[40px] flex items-center justify-center text-second text-2xl cursor-pointer bg-[#f1fddf85] hover:bg-subText hover:text-white rounded-full duration-300'>
+                    <MdAddShoppingCart />
+                    <span className="tooltip z-50">Add To Cart</span>
+                </div>
+                <div onClick={cartAdd} className='addToCart absolute md:top-[66px] top-[20px] md:right-[16px] right-[20px] w-[40px] h-[40px] flex items-center justify-center text-second text-2xl cursor-pointer bg-[#f1fddf85] hover:bg-subText hover:text-white rounded-full duration-300'>
+                    <LuScanEye />
+                    <span className="tooltip">View item</span>
+                </div>
             </div>
             {/* -------Discount Percentage  */}
             <div className='absolute top-[16px] left-[12px] px-[22px] py-[10px] flex items-center justify-center text-white bg-primary text-base rounded-full'>

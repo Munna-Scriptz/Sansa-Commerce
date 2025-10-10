@@ -29,7 +29,7 @@ const DetailsPreview = () => {
                     onClick={() => setSelectedImg(index)}
                     className={`border-2 ${selectedImg === index ? "border-blue-600" : "border-transparent"} rounded-md overflow-hidden lg:w-[140px] w-[100px] lg:h-[148px]`}
                 >
-                    <Image src={src} alt={`Thumb ${index}`} className="w-full h-full object-cover" />
+                    <Image src={src} alt={`Thumb ${index}`} className="w-full cursor-pointer h-full object-cover" />
                 </button>
                 ))}
             </div>

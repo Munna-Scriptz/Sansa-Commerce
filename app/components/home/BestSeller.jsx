@@ -6,6 +6,8 @@ import Slider from 'react-slick'
 import { useDispatch } from 'react-redux'
 import { CartReducer } from '@/app/redux/cartSlice'
 import { Bounce, toast } from 'react-toastify'
+import Loading from '@/app/loading'
+import { useRouter } from 'next/navigation'
 
 const BestSeller = () => {
   const settings = {
@@ -100,9 +102,24 @@ const BestSeller = () => {
     });
   }
   
-  
+  // ------------------------------ Handle Navigation
+    const router = useRouter()
+    const [loader , setLoader] = useState(false)
+
+    const handleNav = (e)=>{
+      console.log('hello world')
+        setLoader(true)
+        setTimeout(() => {
+          router.push(`/details?category=${e.url}`)
+          setLoader(false)
+        }, 1500);
+    }
+
   return (
     <>
+    {
+      loader && <Loading />
+    }
         <section id='Best-Seller' className='md:mt-[112px] mt-[82px]'>
             <div className="container">
                 <div id="Best-Seller-Row">
@@ -129,7 +146,7 @@ const BestSeller = () => {
                                 <Slider {...settings}>
                                     {
                                         product.slice(0,20).map((item , i)=>(
-                                          <SingleSeller cartAdd={()=>handleCart(item.id)} img={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
+                                          <SingleSeller cartAdd={()=>handleCart(item.id)} navigate={()=>handleNav(item)} img={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
                                         ))
                                     }
                                 </Slider>
@@ -139,7 +156,7 @@ const BestSeller = () => {
                                 <Slider {...settings}>
                                   {
                                         product.slice(20, 30).map((item , i)=>(
-                                          <SingleSeller cartAdd={()=>handleCart(item.id)} img={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
+                                          <SingleSeller cartAdd={()=>handleCart(item.id)} navigate={()=>handleNav(item)} img={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
                                         ))
                                     }
                                 </Slider>

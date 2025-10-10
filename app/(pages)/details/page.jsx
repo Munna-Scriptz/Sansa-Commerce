@@ -1,6 +1,7 @@
 import BreadCrumb from '@/app/components/common/BreadCrumb';
 import DetailsPreview from '@/app/components/details/DetailsPreview';
 import DetailText from '@/app/components/details/DetailText';
+import RecoProducts from '@/app/components/product/RecoProducts';
 import Link from 'next/link';
 import React from 'react'
 import { FaArrowLeftLong } from 'react-icons/fa6';
@@ -20,7 +21,7 @@ const page = () => {
             </div>
         </div>
 
-        {/* ------------------------ BreadCrumb and back ---------------------------- */}
+        {/* ------------------------ Review product ---------------------------- */}
         <div className="container">
             <div className="flex gap-8 py-12">
                 {/* ----------------------left Side---------------------- */}
@@ -30,6 +31,9 @@ const page = () => {
                 <DetailText />
             </div>
         </div>
+
+        {/* ------------------------ Similar product slide ---------------------------- */}
+        <RecoProducts />
     </main>
 );
 

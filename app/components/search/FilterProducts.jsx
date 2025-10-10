@@ -7,23 +7,23 @@ import { MdKeyboardDoubleArrowLeft, MdOutlineBrandingWatermark } from 'react-ico
 
 const FilterProducts = () => {
     // ---------Size----------
-    const [showSize , SetShowSize] = useState(false)
+    const [showSize , SetShowSize] = useState(true)
     const [size , setSize] = useState('M')
     const sizes = ['M' , 'L' , 'X' , 'Xl' ]
 
     // ---------Color----------
-    const [color , setColor] = useState({colActive: false, colContent: ''})
+    const [color , setColor] = useState({colActive: true, colContent: ''})
     const colors = ['F9A000' , '8AC732' , '0A65C0' , 'EA4335' , 'B2B2B2' , '000000' ]
 
     // ---------Price Range----------
-    const [price , setPrice] = useState({priceActive: false , priceMin: '' , PriceMax: ''})
+    const [price , setPrice] = useState({priceActive: true , priceMin: '' , PriceMax: ''})
 
     // ---------Material ----------
-    const [material , setMaterial] = useState({mateActive: false, mateContent: 'cotton'})
+    const [material , setMaterial] = useState({mateActive: true, mateContent: 'cotton'})
     const materials = ['cotton' , 'silk' , 'polyester' ,'silicon' , 'wool']
 
     // ---------Material ----------
-    const [brand , setBrand] = useState({brandActive: false, brandContent: ''})
+    const [brand , setBrand] = useState({brandActive: true, brandContent: ''})
     const brands = ['Gucci' , 'Prada' , 'Nike' ,'Chanel' , 'Adidas' , 'Disesel']
 
   return (
