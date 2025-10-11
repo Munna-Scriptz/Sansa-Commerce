@@ -8,7 +8,8 @@ import FilterProducts from './FilterProducts'
 import { useDispatch } from 'react-redux'
 import { CartReducer } from '@/app/redux/cartSlice'
 import { Bounce, toast } from 'react-toastify'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
+import Loading from '@/app/loading'
 
 
 const SearchProducts = () => {
@@ -61,8 +62,23 @@ const SearchProducts = () => {
         transition: Bounce,
       });
     }
+
+    // ------------------------------ Handle Navigation
+  const router = useRouter()
+  const [loader , setLoader] = useState(false)
+
+  const handleNav = (e)=>{
+    setLoader(true)
+    setTimeout(() => {
+      router.push(`/details?productId=${e.id}`)
+      setLoader(false)
+    }, 1500);
+  }
   return (
     <>
+      {
+        loader && <Loading />
+      }
       <Tabs/>
       <div className='container'>
         {/* ---------------------Result Text And Sort-------------------- */}
@@ -101,7 +117,7 @@ const SearchProducts = () => {
         <div className='mt-[48px] flex items-center flex-wrap justify-between gap-y-[48px]'>
           {
             product.map((item , i)=>(
-              <SingleSearchPro cartAdd={()=>handleCart(item.id)} img={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
+              <SingleSearchPro cartAdd={()=>handleCart(item.id)} navigate={()=>handleNav(item)} img={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
             ))
           }
         </div>

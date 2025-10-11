@@ -56,7 +56,7 @@ const BestSeller = () => {
       ]
   }
   // ------------------ Switching Tabs -------------------
-  const [showTab , setShowTab] = useState('tab1')
+  const [showTab , setShowTab] = useState('mens-shirts')
 
   // ---------------------- Api -------------------------
   const [product , setProduct] = useState([])
@@ -65,7 +65,7 @@ const BestSeller = () => {
 
     const handleApi = async ()=>{
 
-      const response = await fetch('https://dummyjson.com/products')
+      const response = await fetch(`https://dummyjson.com/products/category/${showTab}`)
 
       try{
         const result = await response.json()
@@ -77,7 +77,7 @@ const BestSeller = () => {
     }
 
     handleApi()
-  }, [])
+  }, [showTab])
 
   // --------------------- Handle cart 
   const dispatch = useDispatch()
@@ -129,9 +129,9 @@ const BestSeller = () => {
 
                         <div className="w-[223px] h-[56px] rounded-[8px] border border-borderCol p-1.5 flex items-center justify-between">
                             <input type="radio" name="category" id="clothing" className="hidden peer/clothing" defaultChecked />
-                            <label onClick={()=>setShowTab('tab1')} htmlFor="clothing" className="peer-checked/clothing:bg-primary peer-checked/clothing:text-white bg-transparent text-second font-roboto cursor-pointer rounded-[8px] py-2.5 px-5 transition-colors duration-200">Clothing</label>
+                            <label onClick={()=>setShowTab('mens-shirts')} htmlFor="clothing" className="peer-checked/clothing:bg-primary peer-checked/clothing:text-white bg-transparent text-second font-roboto cursor-pointer rounded-[8px] py-2.5 px-5 transition-colors duration-200">Clothing</label>
                             
-                            <input onClick={()=>setShowTab('tab2')} type="radio" name="category" id="shoes" className="hidden peer/shoes" />
+                            <input onClick={()=>setShowTab('mens-shoes')} type="radio" name="category" id="shoes" className="hidden peer/shoes" />
                             <label htmlFor="shoes" className="peer-checked/shoes:bg-primary peer-checked/shoes:text-white bg-transparent text-second font-roboto cursor-pointer rounded-[8px] py-2.5 px-6.5 transition-colors duration-200">Shoes</label>
                         </div>
 
@@ -140,7 +140,7 @@ const BestSeller = () => {
 
                     {/* ---------------------------------- Seller Slider ----------------------------------- */}
                     {
-                        showTab === 'tab1'?
+                        showTab === 'mens-shirts'?
                             <div className="slider-container md:mt-[77px] mt-[40px]">
                                 <Slider {...settings}>
                                     {
@@ -154,7 +154,7 @@ const BestSeller = () => {
                             <div className="slider-container md:mt-[77px] mt-[40px]">
                                 <Slider {...settings}>
                                   {
-                                        product.slice(20, 30).map((item , i)=>(
+                                        product.map((item , i)=>(
                                           <SingleSeller cartAdd={()=>handleCart(item.id)} navigate={()=>handleNav(item)} img={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
                                         ))
                                     }

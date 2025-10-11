@@ -3,10 +3,13 @@ import BreadCrumb from '@/app/components/common/BreadCrumb';
 import DetailsPreview from '@/app/components/details/DetailsPreview';
 import DetailText from '@/app/components/details/DetailText';
 import RecoProducts from '@/app/components/product/RecoProducts';
+import { CartReducer } from '@/app/redux/cartSlice';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import { FaArrowLeftLong } from 'react-icons/fa6';
+import { useDispatch } from 'react-redux';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 
 const page = () => {
@@ -41,6 +44,29 @@ const page = () => {
       handleApi()
     }, [])
 
+
+    // --------------------- Handle cart 
+  const dispatch = useDispatch()
+  
+  const handleCart = (id)=>{
+    const myArr = JSON.parse(localStorage.getItem('productId')) || []
+    myArr.push(id)
+    localStorage.setItem('productId' , JSON.stringify(myArr) )
+    dispatch(CartReducer(JSON.parse(localStorage.getItem('productId'))))
+
+    // ----------------------------- Toaster 
+    toast.success('Product added to your cart!', {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+    });
+  }
   return (
     <main id='Product-Details-Page'>
         {/* ------------------------ BreadCrumb and back ---------------------------- */}
@@ -62,7 +88,7 @@ const page = () => {
                             {/* ----------------------left Side---------------------- */}
                             <DetailsPreview mainImg={item.thumbnail} subImg1={item.images[1]} SubImg2={item.images[2]} />
                             {/* ----------------------Right Side---------------------- */}
-                            <DetailText title={item.title} description={item.description} rating={item.rating} price={item.price} totalReview={item.minimumOrderQuantity} code={item.sku} />
+                            <DetailText addCart={()=>handleCart(item.id)} title={item.title} description={item.description} rating={item.rating} price={item.price} totalReview={item.minimumOrderQuantity} code={item.sku} />
                         </div>
                     ))
                 }
