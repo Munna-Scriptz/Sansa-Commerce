@@ -3,14 +3,16 @@ import React, { useEffect, useState } from 'react'
 import { IoArrowRedoOutline, IoSearch } from 'react-icons/io5'
 import { CgArrowTopLeft } from "react-icons/cg";
 import { useRouter } from 'next/navigation';
-
+import noPro from '../../../public/searchNotFound.svg'
+import Image from 'next/image';
 
 const SearchFilter = ({searchHook , searchSetHook}) => {
     // ---------------------- Catch the input data 
     const [value , setValue] = useState('')
     const [loader , setLoader] = useState(false)
-    // ---------------------- Api -------------------------
     const [product , setProduct] = useState([])
+    const [searchPro , setSearchPro] = useState([]) 
+    // ---------------------- Api -------------------------
     
     useEffect(()=>{
 
@@ -32,16 +34,10 @@ const SearchFilter = ({searchHook , searchSetHook}) => {
     
 
     // --------------------------- FIltering category by search 
-    const [searchPro , setSearchPro] = useState([]) 
 
     const handleSearch = ()=>{
         const categoryList = product.filter((items)=> items.name.toLowerCase().includes(value.toLocaleLowerCase()))
-        if(value == ''){
-            setSearchPro([])
-        }
-        else{
-            setSearchPro(categoryList)
-        }
+        setSearchPro(categoryList)
     }
 
     // ------------------------------ Handle Navigation
@@ -58,7 +54,7 @@ const SearchFilter = ({searchHook , searchSetHook}) => {
     <>
         {/* -------------------------- Loader  */}
         <div className={`${loader ? '' : 'hidden'} LoaderDiv z-50 fixed top-0 left-0 flex items-center justify-center w-full h-screen bg-[#0000007a]`}><div className="loader"></div></div>
-        <section className={`${searchHook? 'top-20' : '-top-160 '} absolute duration-900 md:right-10 bg-brand pt-[20px] pb-[10px] z-10 rounded-[12px]`}>
+        <section className={`${searchHook? 'top-20' : '-top-160 '} absolute lg:w-auto w-full duration-900 md:right-10 bg-brand pt-[20px] pb-[30px] z-10 rounded-[12px]`}>
             <form className='px-[32px]'>
                 <fieldset className='md:w-[370px] w-full h-[64px] pb-3 border-1 border-[#8D918C] rounded-[8px]'>
                     <legend className='text-subText text-base ml-6 px-2'>Search</legend>
@@ -75,17 +71,32 @@ const SearchFilter = ({searchHook , searchSetHook}) => {
             </form>
 
             {/* -------------- APi categories  */}
-            <div className={`${searchPro.length == 0? 'h-auto' : 'h-[480px]'} mt-6 overflow-scroll overflow-x-hidden`}>
-                {
-                    searchPro.map((item , i)=>(
-                        <div key={i} onClick={()=>{handleNav(item) , searchSetHook() , setValue('')}} className='px-[24px] py-[12px] border-b-1 cursor-pointer border-gray-300 flex items-center justify-between bg-[#e1ffb3] hover:bg-[#caff7a] duration-300 '>
-                            <h2 className='text-second text-lg font-medium'>{item.name}</h2>
-                            <CgArrowTopLeft className='text-2xl'/>
+            {
+                value == ''?
+                ''
+                :
+                <div>
+                    {
+                        searchPro.length == 0?
+                        <div className='flex flex-col gap-6 items-center justify-center pt-[50px] pb-[20px]'>
+                            <Image src={noPro} alt='No product Found'/>
+                            <h2 className='text-center text-2xl text-second'>Product not found...</h2>
                         </div>
-                    ))
-                }
+                        :
+                        <div className={`${searchPro.length == 0? 'max-h-auto' : 'max-h-[480px]'} mt-6 overflow-scroll overflow-x-hidden`}>
+                            {
+                                searchPro.map((item , i)=>(
+                                    <div key={i} onClick={()=>{handleNav(item) , searchSetHook() , setValue('')}} className='px-[24px] py-[12px] border-b-1 cursor-pointer border-gray-300 flex items-center justify-between bg-[#e1ffb3] hover:bg-[#caff7a] duration-300 '>
+                                        <h2 className='text-second text-lg font-medium'>{item.name}</h2>
+                                        <CgArrowTopLeft className='text-2xl'/>
+                                    </div>
+                                ))
+                            }
 
-            </div>
+                        </div>
+                    }
+                </div>
+            }
         </section>
     </>
   )
