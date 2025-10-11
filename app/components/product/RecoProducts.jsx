@@ -9,6 +9,8 @@ import "slick-carousel/slick/slick.css";
 import { useDispatch } from 'react-redux'
 import { CartReducer } from '@/app/redux/cartSlice'
 import { Bounce, toast } from 'react-toastify'
+import { useRouter } from 'next/navigation'
+import Loading from '@/app/loading'
 
 const RecoProducts = () => {
   const settings = {
@@ -63,7 +65,7 @@ const RecoProducts = () => {
   useEffect(()=>{
 
     const handleApi = async ()=>{
-      const response = await fetch('https://dummyjson.com/products')
+      const response = await fetch('https://dummyjson.com/products/category/vehicle')
 
       try{
         const result = await response.json()
@@ -98,8 +100,22 @@ const RecoProducts = () => {
     });
   }
 
+  // ------------------------------ Handle Navigation
+  const router = useRouter()
+  const [loader , setLoader] = useState(false)
+
+  const handleNav = (e)=>{
+    setLoader(true)
+    setTimeout(() => {
+      router.push(`/details?productId=${e.id}`)
+      setLoader(false)
+    }, 1500);
+  }
   return (
     <>
+      {
+        loader && <Loading />
+      }
         <section id='Recommended-Products' className='mt-[88px]'>
             <div className="container">
                 <div id="Recommended-Products-Row">
@@ -112,8 +128,8 @@ const RecoProducts = () => {
                     <div className="slider-container mt-[77px]">
                         <Slider {...settings}>
                             {
-                                product.slice(20,30).map((item , i)=>(
-                                    <SingleSeller cartAdd={()=>handleCart(item.id)} img={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
+                                product.map((item , i)=>(
+                                    <SingleSeller cartAdd={()=>handleCart(item.id)} navigate={()=>handleNav(item)} img={item.thumbnail} proName={item.title} proDetails={item.description} proPrice={item.price} key={i}/>
                                 ))
                             }
                         </Slider>

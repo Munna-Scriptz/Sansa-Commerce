@@ -11,6 +11,8 @@ import SingleDiscount from '../common/SingleDiscount'
 import { useDispatch } from 'react-redux'
 import { CartReducer } from '@/app/redux/cartSlice'
 import { Bounce, toast } from 'react-toastify'
+import { useRouter } from 'next/navigation'
+import Loading from '@/app/loading'
 const Discount = () => {
   const settings = {
         className: "center",
@@ -95,8 +97,22 @@ const Discount = () => {
       transition: Bounce,
     });
   }
+  // ------------------------------ Handle Navigation
+  const router = useRouter()
+  const [loader , setLoader] = useState(false)
+
+  const handleNav = (e)=>{
+    setLoader(true)
+    setTimeout(() => {
+      router.push(`/details?productId=${e.id}`)
+      setLoader(false)
+    }, 1500);
+  }
   return (
     <>
+      {
+        loader && <Loading />
+      }
         <section id='Discount' className='mt-[112px]'>
             <div className="container">
                 <div id="Discount-Row">
@@ -108,7 +124,7 @@ const Discount = () => {
                         <Slider {...settings}>
                             {
                                 product.slice(20,40).map((item , i)=>(
-                                    <SingleDiscount cartAdd={()=>handleCart(item.id)} key={i} img={item.thumbnail} proName={item.title} ProDetails={item.description} proPrice={item.price}/>
+                                    <SingleDiscount cartAdd={()=>handleCart(item.id)} navigate={()=>handleNav(item)} key={i} img={item.thumbnail} proName={item.title} ProDetails={item.description} proPrice={item.price}/>
                                 ))
                             }
                         </Slider>

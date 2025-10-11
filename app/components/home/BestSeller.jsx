@@ -103,17 +103,17 @@ const BestSeller = () => {
   }
   
   // ------------------------------ Handle Navigation
-    const router = useRouter()
-    const [loader , setLoader] = useState(false)
+  const router = useRouter()
+  const [loader , setLoader] = useState(false)
 
-    const handleNav = (e)=>{
-        setLoader(true)
-        setTimeout(() => {
-          router.push(`/details?productId=${e.id}`)
-          setLoader(false)
-        }, 1500);
-    }
-
+  const handleNav = (e)=>{
+    setLoader(true)
+    setTimeout(() => {
+      router.push(`/details?productId=${e.id}`)
+      setLoader(false)
+    }, 1500);
+  }
+  
   return (
     <>
       {
