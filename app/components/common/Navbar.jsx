@@ -11,7 +11,6 @@ import LoginOrRegis from './LoginOrRegis'
 import { useProgress } from "react-transition-progress";
 import { useDispatch, useSelector } from 'react-redux'
 import { CartReducer } from '@/app/redux/cartSlice'
-import { FiImage } from 'react-icons/fi'
 import SearchFilter from './SearchFilter'
 const Navbar = () => {
     const startProgress = useProgress();

@@ -5,59 +5,30 @@ import Link from 'next/link'
 import { FaPlus } from 'react-icons/fa6'
 import Slider from 'react-slick'
 import SingleSeller from '../common/SingleSeller'
-import "slick-carousel/slick/slick.css";
 import { useDispatch } from 'react-redux'
 import { CartReducer } from '@/app/redux/cartSlice'
 import { Bounce, toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
 import Loading from '@/app/loading'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const RecoProducts = () => {
   const settings = {
-        className: "center",
-        arrows: false,
-        centerMode: true,
-        infinite: true,
-        centerPadding: "60px",
-        slidesToShow: 3,
-        speed: 500,
-        autoplay: true,
-        responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          centerPadding: "0px",
-          
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerPadding: "0px",
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerPadding: "0px",
-        }
-      },
-      {
-        breakpoint: 320,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerPadding: "0px",
-        }
-      }
-      ]
-  }
+    className: "center",
+    arrows: false,
+    centerMode: true,
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: 3,
+    speed: 500,
+    autoplay: true,
+    responsive: [
+      { breakpoint: 1024, settings: { slidesToShow: 2, slidesToScroll: 2, centerPadding: "0px" } },
+      { breakpoint: 600, settings: { slidesToShow: 1, slidesToScroll: 1, centerPadding: "0px" } },
+    ],
+  };
+
     
   // ------------------- APi product
   const [product , setProduct] = useState([])

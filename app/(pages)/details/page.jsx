@@ -84,7 +84,7 @@ const page = () => {
         <div className="container">
                 {
                     mappedProduct.map((item , index)=>(
-                        <div key={index} className="flex gap-8 py-12">
+                        <div key={index} className="flex lg:flex-row flex-col gap-8 py-12">
                             {/* ----------------------left Side---------------------- */}
                             <DetailsPreview mainImg={item.thumbnail} subImg1={item.images[1]} SubImg2={item.images[2]} />
                             {/* ----------------------Right Side---------------------- */}

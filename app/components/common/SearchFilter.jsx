@@ -58,7 +58,7 @@ const SearchFilter = ({searchHook , searchSetHook}) => {
     <>
         {/* -------------------------- Loader  */}
         <div className={`${loader ? '' : 'hidden'} LoaderDiv z-50 fixed top-0 left-0 flex items-center justify-center w-full h-screen bg-[#0000007a]`}><div className="loader"></div></div>
-        <section className={`${searchHook? 'top-20' : '-top-160 '} absolute duration-900 right-10 bg-brand pt-[20px] pb-[10px] z-10 rounded-[12px]`}>
+        <section className={`${searchHook? 'top-20' : '-top-160 '} absolute duration-900 md:right-10 bg-brand pt-[20px] pb-[10px] z-10 rounded-[12px]`}>
             <form className='px-[32px]'>
                 <fieldset className='md:w-[370px] w-full h-[64px] pb-3 border-1 border-[#8D918C] rounded-[8px]'>
                     <legend className='text-subText text-base ml-6 px-2'>Search</legend>

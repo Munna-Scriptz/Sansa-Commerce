@@ -27,7 +27,7 @@ const SingleSeller = ({img , proName, proDetails, proPrice , cartAdd , navigate}
                     <MdAddShoppingCart />
                     <span className="tooltip z-50">Add To Cart</span>
                 </div>
-                <div onClick={navigate} className='addToCart absolute md:top-[66px] top-[20px] md:right-[16px] right-[20px] w-[40px] h-[40px] flex items-center justify-center text-second text-2xl cursor-pointer bg-[#f1fddf85] hover:bg-subText hover:text-white rounded-full duration-300'>
+                <div onClick={navigate} className='addToCart absolute md:top-[66px] top-[66px] md:right-[16px] right-[20px] w-[40px] h-[40px] flex items-center justify-center text-second text-2xl cursor-pointer bg-[#f1fddf85] hover:bg-subText hover:text-white rounded-full duration-300'>
                     <LuScanEye />
                     <span className="tooltip">View item</span>
                 </div>

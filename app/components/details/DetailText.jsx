@@ -4,7 +4,7 @@ import { GoShareAndroid } from "react-icons/go";
 const DetailText = ({title , description , rating , price , totalReview , code  , addCart}) => {
   return (
     <>
-        <div className="w-[440px] flex flex-col flex-1">
+        <div className="lg:w-[440px] w-full flex flex-col flex-1">
                 {/* -----------------------Title------------------- */}
                 <h2 className="text-[32px] font-medium text-[#101110]">
                     {title}
@@ -63,7 +63,7 @@ const DetailText = ({title , description , rating , price , totalReview , code  
 
                 {/* ----------------------Buttons */}
                 <div className="flex items-center gap-4 mt-10">
-                    <button onClick={addCart} className="bg-primary text-white w-[282px] cursor-pointer duration-300 py-3 rounded-full font-semibold hover:opacity-90">
+                    <button onClick={addCart} className="bg-primary text-white md:w-[282px] w-[200px] cursor-pointer duration-300 py-3 rounded-full font-semibold hover:opacity-90">
                     Add to cart
                     </button>
                     <button className="border border-[#6A6C68] w-[142px] py-3 rounded-full cursor-pointer hover:bg-[#101110] hover:text-white text-primary duration-300">
